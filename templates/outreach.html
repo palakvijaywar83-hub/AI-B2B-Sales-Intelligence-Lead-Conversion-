@@ -1,0 +1,933 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+AI Outreach · {{ lead.company_name }} · EVLeadAI
+{% endblock %}
+
+{% block content %}
+
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+<section class="outreach-header">
+
+    <div class="outreach-title">
+
+        <div class="lead-labels">
+
+            <span class="hero-badge">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                PERSONALIZATION AGENT
+            </span>
+
+            <span class="live-analysis">
+                <span class="live-dot"></span>
+                AI GENERATED
+            </span>
+
+        </div>
+
+
+        <h1>
+            Intelligent,
+            <span>Personalized Outreach</span>
+        </h1>
+
+
+        <p>
+            EVLeadAI generates context-aware communication using
+            company intelligence, fleet requirements, product fit,
+            engagement signals and estimated business ROI.
+        </p>
+
+    </div>
+
+
+    <div class="outreach-header-actions">
+
+        <a class="btn btn-secondary"
+           href="{% url 'lead_detail' lead.id %}">
+
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Lead Intelligence
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PERSONALIZATION PIPELINE
+========================================================= -->
+<section class="personalization-pipeline">
+
+    <div class="personalization-intro">
+
+        <div class="personalization-brain">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div>
+
+            <small>
+                PERSONALIZATION ENGINE
+            </small>
+
+            <strong>
+                Why this message is different
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="personalization-flow">
+
+
+        <div class="personalization-source">
+
+            <div class="source-icon">
+                <i class="fa-solid fa-building"></i>
+            </div>
+
+            <div>
+                <small>CONTEXT</small>
+                <strong>Company Research</strong>
+            </div>
+
+        </div>
+
+
+        <i class="fa-solid fa-plus flow-symbol"></i>
+
+
+        <div class="personalization-source">
+
+            <div class="source-icon">
+                <i class="fa-solid fa-truck-fast"></i>
+            </div>
+
+            <div>
+                <small>NEED</small>
+                <strong>Fleet Requirement</strong>
+            </div>
+
+        </div>
+
+
+        <i class="fa-solid fa-plus flow-symbol"></i>
+
+
+        <div class="personalization-source">
+
+            <div class="source-icon">
+                <i class="fa-solid fa-scooter"></i>
+            </div>
+
+            <div>
+                <small>MATCH</small>
+                <strong>Recommended EV</strong>
+            </div>
+
+        </div>
+
+
+        <i class="fa-solid fa-plus flow-symbol"></i>
+
+
+        <div class="personalization-source">
+
+            <div class="source-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <div>
+                <small>VALUE</small>
+                <strong>ROI Intelligence</strong>
+            </div>
+
+        </div>
+
+
+        <i class="fa-solid fa-plus flow-symbol"></i>
+
+
+        <div class="personalization-source">
+
+            <div class="source-icon">
+                <i class="fa-solid fa-satellite-dish"></i>
+            </div>
+
+            <div>
+                <small>BEHAVIOUR</small>
+                <strong>Engagement Signals</strong>
+            </div>
+
+        </div>
+
+
+        <i class="fa-solid fa-arrow-right flow-arrow"></i>
+
+
+        <div class="personalization-result">
+
+            <div>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+
+            <span>
+                PERSONALIZED
+            </span>
+
+            <strong>
+                AI Outreach
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROSPECT CONTEXT
+========================================================= -->
+<section class="outreach-context-grid">
+
+
+    <!-- COMPANY -->
+    <div class="outreach-context-card">
+
+        <div class="context-icon">
+            <i class="fa-solid fa-building"></i>
+        </div>
+
+        <div>
+
+            <small>
+                PROSPECT
+            </small>
+
+            <strong>
+                {{ lead.company_name }}
+            </strong>
+
+            <span>
+                {{ lead.industry }} · {{ lead.city }}
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EV REQUIREMENT -->
+    <div class="outreach-context-card">
+
+        <div class="context-icon">
+            <i class="fa-solid fa-bullseye"></i>
+        </div>
+
+        <div>
+
+            <small>
+                ESTIMATED REQUIREMENT
+            </small>
+
+            <strong>
+                {{ lead.estimated_ev_requirement }} EVs
+            </strong>
+
+            <span>
+                Fleet opportunity identified
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PRODUCT -->
+    <div class="outreach-context-card">
+
+        <div class="context-icon">
+            <i class="fa-solid fa-scooter"></i>
+        </div>
+
+        <div>
+
+            <small>
+                RECOMMENDED PRODUCT
+            </small>
+
+            <strong>
+                {% if lead.recommended_product %}
+                    {{ lead.recommended_product.name }}
+                {% else %}
+                    Product Match Pending
+                {% endif %}
+            </strong>
+
+            <span>
+                AI-selected fleet solution
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- AI SCORE -->
+    <div class="outreach-context-card score-context-card">
+
+        <div class="context-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div>
+
+            <small>
+                CURRENT AI SCORE
+            </small>
+
+            <strong>
+                {{ lead.dynamic_score }}/100
+            </strong>
+
+            <span>
+                {{ lead.stage }} opportunity
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GENERATED OUTREACH
+========================================================= -->
+<section class="generated-outreach-panel">
+
+
+    <!-- TOP -->
+    <div class="generated-message-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                AI-GENERATED COMMUNICATION
+            </span>
+
+            <h2>
+                Personalized Sales Outreach
+            </h2>
+
+            <p>
+                Generated specifically for
+                <strong>{{ lead.company_name }}</strong>.
+            </p>
+
+        </div>
+
+
+        <div class="generation-status">
+
+            <span class="generation-dot"></span>
+
+            <div>
+                <small>
+                    PERSONALIZATION
+                </small>
+
+                <strong>
+                    COMPLETE
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CHANNEL SELECTOR VISUAL -->
+    <div class="outreach-channel-tabs">
+
+        <button class="channel-tab active"
+                type="button">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            Email Outreach
+
+        </button>
+
+
+        <button class="channel-tab"
+                type="button">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            WhatsApp Ready
+
+        </button>
+
+
+        <div class="channel-ai-note">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            Generated by Personalization Agent
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EMAIL WINDOW -->
+    <div class="email-preview">
+
+
+        <!-- EMAIL TOOLBAR -->
+        <div class="email-toolbar">
+
+            <div class="email-toolbar-left">
+
+                <span class="window-dot"></span>
+                <span class="window-dot"></span>
+                <span class="window-dot"></span>
+
+            </div>
+
+
+            <div class="email-toolbar-center">
+
+                <i class="fa-solid fa-lock"></i>
+
+                AI Personalized Message Preview
+
+            </div>
+
+
+            <div class="email-toolbar-right">
+
+                <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- EMAIL META -->
+        <div class="email-meta">
+
+            <div class="email-avatar">
+
+                <i class="fa-solid fa-bolt"></i>
+
+            </div>
+
+
+            <div class="email-meta-content">
+
+                <div class="email-from">
+
+                    <strong>
+                        EV Enterprise Sales
+                    </strong>
+
+                    <span>
+                        AI Assisted
+                    </span>
+
+                </div>
+
+
+                <small>
+                    Personalized for {{ lead.company_name }}
+                </small>
+
+            </div>
+
+
+            <div class="ai-personalized-badge">
+
+                <i class="fa-solid fa-brain"></i>
+
+                AI Personalized
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SUBJECT -->
+        <div class="email-subject">
+
+            <small>
+                SUBJECT
+            </small>
+
+            <h2>
+                {{ subject }}
+            </h2>
+
+        </div>
+
+
+
+        <!-- MESSAGE -->
+        <div class="email-message">
+
+            {{ message_text|linebreaks }}
+
+        </div>
+
+
+
+        <!-- MESSAGE FOOTER -->
+        <div class="email-message-footer">
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Company context incorporated
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    EV requirement incorporated
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Product recommendation incorporated
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Business value incorporated
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     AI REASONING / EXPLAINABILITY
+========================================================= -->
+<section class="outreach-explanation-grid">
+
+
+    <!-- WHY THIS MESSAGE -->
+    <div class="outreach-explanation-card">
+
+        <div class="explanation-card-header">
+
+            <div class="explanation-card-icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div>
+
+                <small>
+                    EXPLAINABLE AI
+                </small>
+
+                <h3>
+                    Why AI generated this message
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="reasoning-list">
+
+
+            <div class="reasoning-item">
+
+                <span>01</span>
+
+                <div>
+
+                    <strong>
+                        Company Context
+                    </strong>
+
+                    <p>
+                        Outreach is aligned with
+                        {{ lead.company_name }} and its
+                        {{ lead.industry }} operations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="reasoning-item">
+
+                <span>02</span>
+
+                <div>
+
+                    <strong>
+                        Fleet Requirement
+                    </strong>
+
+                    <p>
+                        The message considers an estimated requirement
+                        of {{ lead.estimated_ev_requirement }} electric vehicles.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="reasoning-item">
+
+                <span>03</span>
+
+                <div>
+
+                    <strong>
+                        Product Fit
+                    </strong>
+
+                    <p>
+
+                        {% if lead.recommended_product %}
+
+                            AI matched
+                            {{ lead.recommended_product.name }}
+                            against the prospect's operating requirement.
+
+                        {% else %}
+
+                            Product matching can be incorporated after
+                            the Product Agent completes its analysis.
+
+                        {% endif %}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="reasoning-item">
+
+                <span>04</span>
+
+                <div>
+
+                    <strong>
+                        Conversion Intent
+                    </strong>
+
+                    <p>
+                        Messaging intensity is informed by the
+                        current lead score of {{ lead.dynamic_score }}/100.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- WHAT HAPPENS NEXT -->
+    <div class="outreach-explanation-card next-step-card">
+
+        <div class="explanation-card-header">
+
+            <div class="explanation-card-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div>
+
+                <small>
+                    AGENTIC WORKFLOW
+                </small>
+
+                <h3>
+                    What happens after outreach?
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="post-outreach-flow">
+
+
+            <div class="post-step">
+
+                <div class="post-step-icon">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+
+                <div>
+                    <small>STEP 1</small>
+                    <strong>Outreach Sent</strong>
+                </div>
+
+            </div>
+
+
+            <div class="post-line"></div>
+
+
+            <div class="post-step">
+
+                <div class="post-step-icon">
+                    <i class="fa-solid fa-satellite-dish"></i>
+                </div>
+
+                <div>
+                    <small>STEP 2</small>
+                    <strong>Engagement Captured</strong>
+                </div>
+
+            </div>
+
+
+            <div class="post-line"></div>
+
+
+            <div class="post-step">
+
+                <div class="post-step-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <div>
+                    <small>STEP 3</small>
+                    <strong>Score Recalculated</strong>
+                </div>
+
+            </div>
+
+
+            <div class="post-line"></div>
+
+
+            <div class="post-step">
+
+                <div class="post-step-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <div>
+                    <small>STEP 4</small>
+                    <strong>AI Re-Evaluates</strong>
+                </div>
+
+            </div>
+
+
+            <div class="post-line"></div>
+
+
+            <div class="post-step final-step">
+
+                <div class="post-step-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <div>
+                    <small>STEP 5</small>
+                    <strong>Next Best Action</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="current-next-action">
+
+            <small>
+                CURRENT NEXT BEST ACTION
+            </small>
+
+            <strong>
+                {{ lead.next_best_action }}
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INTEGRATION STATUS
+========================================================= -->
+<section class="integration-panel">
+
+    <div class="integration-info">
+
+        <div class="integration-icon">
+            <i class="fa-solid fa-plug"></i>
+        </div>
+
+
+        <div>
+
+            <small>
+                DEMONSTRATION MODE
+            </small>
+
+            <h3>
+                Integration-ready architecture
+            </h3>
+
+            <p>
+                The hackathon MVP generates personalized communication
+                and simulates engagement. Production deployment can
+                connect approved communication providers through APIs
+                and webhooks.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="integration-channels">
+
+
+        <div class="integration-channel">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <div>
+                <strong>Email API</strong>
+                <span>Integration Ready</span>
+            </div>
+
+        </div>
+
+
+        <div class="integration-channel">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            <div>
+                <strong>WhatsApp Business</strong>
+                <span>Integration Ready</span>
+            </div>
+
+        </div>
+
+
+        <div class="integration-channel">
+
+            <i class="fa-solid fa-webhook"></i>
+
+            <div>
+                <strong>Engagement Webhooks</strong>
+                <span>Event Ready</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STAGE CLOSING STATEMENT
+========================================================= -->
+<section class="outreach-stage-message">
+
+    <div class="stage-message-icon">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </div>
+
+
+    <div>
+
+        <small>
+            FROM GENERIC MARKETING TO INTELLIGENT SELLING
+        </small>
+
+        <h2>
+            One prospect.
+            <span>One context.</span>
+            One personalized conversation.
+        </h2>
+
+        <p>
+            EVLeadAI helps sales teams communicate with the
+            right prospect, with the right proposition,
+            at the right moment.
+        </p>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

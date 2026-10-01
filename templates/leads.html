@@ -1,0 +1,762 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+Lead Intelligence · EVLeadAI
+{% endblock %}
+
+{% block content %}
+
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+<section class="lead-list-header">
+
+    <div class="lead-list-title">
+
+        <div class="lead-labels">
+
+            <span class="hero-badge">
+                <i class="fa-solid fa-bullseye"></i>
+                AI LEAD INTELLIGENCE
+            </span>
+
+            <span class="live-analysis">
+                <span class="live-dot"></span>
+                DYNAMIC PRIORITIZATION
+            </span>
+
+        </div>
+
+
+        <h1>
+            AI-Ranked B2B
+            <span>EV Opportunities</span>
+        </h1>
+
+        <p>
+            Every prospect is continuously prioritized using
+            business fit, EV requirement, customer engagement
+            and purchase intent.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+    <form method="get" class="lead-search">
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                name="q"
+                value="{{ q }}"
+                placeholder="Search company, industry or city..."
+                autocomplete="off"
+            >
+
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search Leads
+
+        </button>
+
+        {% if q %}
+
+        <a href="{% url 'leads' %}"
+           class="btn btn-secondary">
+
+            <i class="fa-solid fa-xmark"></i>
+            Clear
+
+        </a>
+
+        {% endif %}
+
+    </form>
+
+</section>
+
+
+
+<!-- =========================================================
+     AI INTELLIGENCE STRIP
+========================================================= -->
+<section class="lead-intelligence-strip">
+
+    <div class="lead-strip-intro">
+
+        <div class="strip-ai-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div>
+            <small>
+                AI PRIORITIZATION ENGINE
+            </small>
+
+            <strong>
+                Focus sales effort where conversion potential is highest
+            </strong>
+        </div>
+
+    </div>
+
+
+    <div class="strip-process">
+
+        <div>
+            <i class="fa-solid fa-building"></i>
+            <span>Company Fit</span>
+        </div>
+
+        <i class="fa-solid fa-plus"></i>
+
+        <div>
+            <i class="fa-solid fa-scooter"></i>
+            <span>EV Requirement</span>
+        </div>
+
+        <i class="fa-solid fa-plus"></i>
+
+        <div>
+            <i class="fa-solid fa-satellite-dish"></i>
+            <span>Engagement</span>
+        </div>
+
+        <i class="fa-solid fa-plus"></i>
+
+        <div>
+            <i class="fa-solid fa-bolt"></i>
+            <span>Purchase Intent</span>
+        </div>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+        <div class="strip-result">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Dynamic AI Score</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LEAD TABLE
+========================================================= -->
+<section class="dashboard-panel leads-command-panel">
+
+
+    <!-- TABLE HEADER -->
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                SALES OPPORTUNITY PIPELINE
+            </span>
+
+            <h2>
+                Priority Prospects
+            </h2>
+
+            <p>
+                Ranked dynamically by AI based on fit,
+                behaviour and conversion intent.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <span class="pulse-dot"></span>
+
+            <div>
+                <small>
+                    SCORING ENGINE
+                </small>
+
+                <strong>
+                    LIVE
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="table-responsive">
+
+        <table class="executive-table lead-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        COMPANY
+                    </th>
+
+                    <th>
+                        FLEET
+                    </th>
+
+                    <th>
+                        EV OPPORTUNITY
+                    </th>
+
+                    <th>
+                        AI PRODUCT MATCH
+                    </th>
+
+                    <th>
+                        CONVERSION
+                    </th>
+
+                    <th>
+                        AI SCORE
+                    </th>
+
+                    <th>
+                        NEXT BEST ACTION
+                    </th>
+
+                    <th>
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            {% for l in leads %}
+
+                <tr class="
+                    {% if l.dynamic_score >= 80 %}
+                        high-priority-row
+                    {% endif %}
+                ">
+
+
+                    <!-- COMPANY -->
+                    <td>
+
+                        <div class="company-cell">
+
+                            <div class="company-avatar">
+                                {{ l.company_name|slice:":1" }}
+                            </div>
+
+
+                            <div class="company-info">
+
+                                <a href="{% url 'lead_detail' l.id %}">
+
+                                    <strong>
+                                        {{ l.company_name }}
+                                    </strong>
+
+                                </a>
+
+
+                                <small>
+
+                                    <span>
+                                        <i class="fa-solid fa-building"></i>
+                                        {{ l.industry }}
+                                    </span>
+
+                                    <span>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        {{ l.city }}
+                                    </span>
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+
+                    <!-- EXISTING FLEET -->
+                    <td>
+
+                        <div class="fleet-cell">
+
+                            <i class="fa-solid fa-car-side"></i>
+
+                            <div>
+
+                                <strong>
+                                    {{ l.existing_fleet_size }}
+                                </strong>
+
+                                <span>
+                                    Vehicles
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+
+                    <!-- EV REQUIREMENT -->
+                    <td>
+
+                        <div class="ev-opportunity-cell">
+
+                            <strong>
+                                {{ l.estimated_ev_requirement }}
+                            </strong>
+
+                            <span>
+                                EVs Required
+                            </span>
+
+                        </div>
+
+                    </td>
+
+
+
+                    <!-- PRODUCT MATCH -->
+                    <td>
+
+                        {% if l.recommended_product %}
+
+                            <div class="product-match">
+
+                                <div class="product-match-icon">
+                                    <i class="fa-solid fa-scooter"></i>
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        AI MATCH
+                                    </small>
+
+                                    <strong>
+                                        {{ l.recommended_product }}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        {% else %}
+
+                            <div class="product-pending">
+
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                                <span>
+                                    Run Product Agent
+                                </span>
+
+                            </div>
+
+                        {% endif %}
+
+                    </td>
+
+
+
+                    <!-- CONVERSION PROBABILITY -->
+                    <td>
+
+                        <div class="probability-cell">
+
+                            <div class="probability-value">
+
+                                <strong>
+                                    {{ l.conversion_probability }}
+                                </strong>
+
+                                <span>%</span>
+
+                            </div>
+
+
+                            <div class="probability-bar">
+
+                                <div
+                                    style="width: {{ l.conversion_probability }}%;">
+                                </div>
+
+                            </div>
+
+
+                            <small>
+                                Conversion Probability
+                            </small>
+
+                        </div>
+
+                    </td>
+
+
+
+                    <!-- DYNAMIC AI SCORE -->
+                    <td>
+
+                        <div class="lead-score-cell">
+
+                            <div class="score-circle
+                                {% if l.dynamic_score >= 80 %}
+                                    score-hot
+                                {% elif l.dynamic_score >= 60 %}
+                                    score-warm
+                                {% elif l.dynamic_score >= 40 %}
+                                    score-qualified
+                                {% else %}
+                                    score-cold
+                                {% endif %}
+                            ">
+
+                                {{ l.dynamic_score }}
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    AI SCORE
+                                </small>
+
+
+                                {% if l.dynamic_score >= 80 %}
+
+                                    <span class="score-label hot-label">
+                                        <i class="fa-solid fa-fire"></i>
+                                        HOT
+                                    </span>
+
+                                {% elif l.dynamic_score >= 60 %}
+
+                                    <span class="score-label warm-label">
+                                        WARM
+                                    </span>
+
+                                {% elif l.dynamic_score >= 40 %}
+
+                                    <span class="score-label qualified-label">
+                                        QUALIFIED
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="score-label cold-label">
+                                        NURTURE
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+
+                    <!-- NEXT BEST ACTION -->
+                    <td>
+
+                        <div class="next-action-cell">
+
+                            <div class="action-bolt">
+
+                                <i class="fa-solid fa-bolt"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    AI RECOMMENDS
+                                </small>
+
+                                <strong>
+                                    {{ l.next_best_action }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+
+                    <!-- OPEN -->
+                    <td>
+
+                        <a
+                            href="{% url 'lead_detail' l.id %}"
+                            class="lead-open-button"
+                            title="Open 360° Lead Intelligence"
+                        >
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+
+            {% empty %}
+
+
+                <tr>
+
+                    <td colspan="8">
+
+                        <div class="leads-empty-state">
+
+                            <div class="empty-icon">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+
+
+                            {% if q %}
+
+                                <h3>
+                                    No matching prospects found
+                                </h3>
+
+                                <p>
+                                    No B2B leads match
+                                    "<strong>{{ q }}</strong>".
+                                    Try another company, industry or city.
+                                </p>
+
+                                <a
+                                    href="{% url 'leads' %}"
+                                    class="btn btn-secondary"
+                                >
+                                    Clear Search
+                                </a>
+
+                            {% else %}
+
+                                <h3>
+                                    No B2B prospects available
+                                </h3>
+
+                                <p>
+                                    Add or discover prospects to start
+                                    the Agentic AI sales workflow.
+                                </p>
+
+                            {% endif %}
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     AI EXPLANATION
+========================================================= -->
+<section class="lead-scoring-explanation">
+
+
+    <div class="scoring-explanation-left">
+
+        <div class="explanation-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+
+        <div>
+
+            <small>
+                EXPLAINABLE AI
+            </small>
+
+            <h3>
+                Why does lead priority keep changing?
+            </h3>
+
+            <p>
+                EVLeadAI combines static business-fit signals with
+                live customer behaviour. Every new interaction can
+                increase or decrease the lead's sales priority.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="scoring-signals">
+
+
+        <div class="signal positive">
+
+            <i class="fa-solid fa-envelope-open"></i>
+
+            <span>
+                Email Open
+            </span>
+
+            <strong>
+                +Score
+            </strong>
+
+        </div>
+
+
+        <div class="signal positive">
+
+            <i class="fa-solid fa-arrow-pointer"></i>
+
+            <span>
+                Pricing Click
+            </span>
+
+            <strong>
+                +Score
+            </strong>
+
+        </div>
+
+
+        <div class="signal positive">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            <span>
+                WhatsApp Reply
+            </span>
+
+            <strong>
+                +Score
+            </strong>
+
+        </div>
+
+
+        <div class="signal strong">
+
+            <i class="fa-solid fa-file-invoice"></i>
+
+            <span>
+                Quotation
+            </span>
+
+            <strong>
+                ++Score
+            </strong>
+
+        </div>
+
+
+        <div class="signal strong">
+
+            <i class="fa-solid fa-calendar-check"></i>
+
+            <span>
+                Demo Request
+            </span>
+
+            <strong>
+                ++Score
+            </strong>
+
+        </div>
+
+
+        <div class="signal negative">
+
+            <i class="fa-solid fa-clock"></i>
+
+            <span>
+                No Response
+            </span>
+
+            <strong>
+                −Score
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STAGE MESSAGE
+========================================================= -->
+<section class="lead-stage-message">
+
+    <div>
+
+        <span>
+            EVLeadAI
+        </span>
+
+        <strong>
+            doesn't ask the sales team to analyze thousands of leads.
+        </strong>
+
+    </div>
+
+
+    <h2>
+        It tells them
+        <em>who to contact, why, and what to do next.</em>
+    </h2>
+
+
+    <div class="stage-message-icon">
+        <i class="fa-solid fa-bolt"></i>
+    </div>
+
+</section>
+
+
+{% endblock %}

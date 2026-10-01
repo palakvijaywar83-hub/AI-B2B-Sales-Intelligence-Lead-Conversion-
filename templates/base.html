@@ -1,0 +1,528 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="EVLeadAI - Agentic AI powered B2B EV Sales Intelligence Platform">
+
+    <title>
+        {% block title %}
+        EVLeadAI | Agentic Sales Intelligence
+        {% endblock %}
+    </title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+    {% block extra_css %}
+    {% endblock %}
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+    <!-- ======================================================
+         SIDEBAR
+    ======================================================= -->
+    <aside class="sidebar">
+
+        <!-- Brand -->
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div class="brand-content">
+                <div class="brand-name">
+                    EVLead<span>AI</span>
+                </div>
+
+                <small>
+                    Agentic Sales Intelligence
+                </small>
+            </div>
+
+        </div>
+
+
+        <!-- Platform Badge -->
+        <div class="platform-badge">
+            <span class="status-dot"></span>
+            AI Platform Online
+        </div>
+
+
+        <!-- Navigation -->
+        <div class="nav-section-title">
+            COMMAND CENTER
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{% url 'dashboard' %}"
+               class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                <span>
+                    Executive Dashboard
+                </span>
+            </a>
+
+
+            <a href="{% url 'leads' %}"
+               class="{% if request.resolver_match.url_name == 'leads' %}active{% endif %}">
+
+                <i class="fa-solid fa-bullseye"></i>
+
+                <span>
+                    Lead Intelligence
+                </span>
+            </a>
+
+
+            <a href="{% url 'leads' %}?stage=Hot">
+
+                <i class="fa-solid fa-fire"></i>
+
+                <span>
+                    High Intent Leads
+                </span>
+
+                <span class="nav-badge">
+                    AI
+                </span>
+            </a>
+
+        </nav>
+
+
+        <div class="nav-section-title">
+            INTELLIGENCE
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="{% url 'leads' %}">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <span>
+                    AI Recommendations
+                </span>
+            </a>
+
+
+            <a href="{% url 'leads' %}">
+
+                <i class="fa-solid fa-cubes"></i>
+
+                <span>
+                    Product Matching
+                </span>
+            </a>
+
+
+            <a href="{% url 'leads' %}">
+
+                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                <span>
+                    Dynamic Scoring
+                </span>
+            </a>
+
+        </nav>
+
+
+        <div class="nav-section-title">
+            SYSTEM
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/admin/">
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>
+                    Administration
+                </span>
+            </a>
+
+        </nav>
+
+
+        <!-- AI Agent Status -->
+        <div class="ai-status-card">
+
+            <div class="ai-status-header">
+
+                <div class="ai-pulse">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+
+                <div>
+                    <strong>
+                        Agentic AI
+                    </strong>
+
+                    <small>
+                        Orchestration Engine
+                    </small>
+                </div>
+
+            </div>
+
+            <div class="ai-running">
+                <span></span>
+                8 Agents Operational
+            </div>
+
+        </div>
+
+
+        <!-- Footer -->
+        <div class="sidebar-footer">
+
+            <span>
+                EVLeadAI
+            </span>
+
+            <small>
+                AI for Sustainable Mobility
+            </small>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ======================================================
+         MAIN APPLICATION
+    ======================================================= -->
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOP HEADER
+        =================================================== -->
+        <header class="top-header">
+
+            <div class="header-left">
+
+                <div class="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div>
+
+                    <h1>
+                        EV B2B Sales Intelligence
+                    </h1>
+
+                    <div class="process-flow">
+
+                        <span>Discover</span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                        <span>Research</span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                        <span>Match</span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                        <span>Engage</span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                        <span>Score</span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                        <strong>
+                            Act
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-right">
+
+
+                <!-- AI Status -->
+                <div class="live-ai">
+
+                    <span class="live-dot"></span>
+
+                    <div>
+                        <small>
+                            AI ENGINE
+                        </small>
+
+                        <strong>
+                            LIVE
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Hackathon -->
+                <div class="hackathon-badge">
+
+                    <i class="fa-solid fa-award"></i>
+
+                    <div>
+
+                        <small>
+                            NATIONAL
+                        </small>
+
+                        <strong>
+                            HACKATHON 2026
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- User -->
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        AI
+                    </div>
+
+                    <div>
+                        <strong>
+                            Sales Command
+                        </strong>
+
+                        <small>
+                            Administrator
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==================================================
+             AI PIPELINE STRIP
+        =================================================== -->
+
+        <section class="ai-pipeline">
+
+            <div class="pipeline-title">
+
+                <span class="pulse-dot"></span>
+
+                <strong>
+                    LIVE AGENTIC AI PIPELINE
+                </strong>
+
+            </div>
+
+
+            <div class="pipeline-agents">
+
+                <div class="pipeline-agent active">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Discovery
+                </div>
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-agent active">
+                    <i class="fa-solid fa-building"></i>
+                    Research
+                </div>
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-agent active">
+                    <i class="fa-solid fa-cubes"></i>
+                    Product Match
+                </div>
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-agent active">
+                    <i class="fa-solid fa-envelope"></i>
+                    Personalization
+                </div>
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-agent active">
+                    <i class="fa-solid fa-satellite-dish"></i>
+                    Engagement
+                </div>
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-agent active">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dynamic Score
+                </div>
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-agent active">
+                    <i class="fa-solid fa-rotate"></i>
+                    Follow-up
+                </div>
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-agent final">
+                    <i class="fa-solid fa-bolt"></i>
+                    Next Best Action
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FLASH MESSAGES
+        =================================================== -->
+
+        {% if messages %}
+
+            <div class="message-container">
+
+                {% for message in messages %}
+
+                    <div class="flash-message {{ message.tags }}">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        <span>
+                            {{ message }}
+                        </span>
+
+                        <button onclick="this.parentElement.remove()">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+
+
+        <!-- ==================================================
+             PAGE CONTENT
+        =================================================== -->
+
+        <div class="page-content">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+
+
+        <!-- ==================================================
+             FOOTER
+        =================================================== -->
+
+        <footer class="app-footer">
+
+            <div>
+
+                <strong>
+                    EVLeadAI
+                </strong>
+
+                <span>
+                    Agentic AI for Intelligent B2B EV Sales
+                </span>
+
+            </div>
+
+
+            <div class="footer-right">
+
+                <span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Responsible AI
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-leaf"></i>
+                    Sustainable Mobility
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-bolt"></i>
+                    Real-Time Intelligence
+                </span>
+
+            </div>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+{% block extra_js %}
+{% endblock %}
+
+</body>
+</html>

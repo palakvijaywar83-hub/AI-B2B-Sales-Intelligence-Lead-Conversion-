@@ -1,0 +1,974 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+{{ lead.company_name }} · EVLeadAI
+{% endblock %}
+
+{% block content %}
+
+
+<!-- =========================================================
+     LEAD COMMAND HEADER
+========================================================= -->
+<section class="lead-command-header">
+
+    <div class="lead-command-left">
+
+        <div class="lead-labels">
+
+            <span class="hero-badge">
+                <i class="fa-solid fa-brain"></i>
+                360° AI LEAD INTELLIGENCE
+            </span>
+
+            <span class="live-analysis">
+                <span class="live-dot"></span>
+                LIVE ANALYSIS
+            </span>
+
+        </div>
+
+
+        <h1>
+            {{ lead.company_name }}
+        </h1>
+
+
+        <div class="lead-meta">
+
+            <span>
+                <i class="fa-solid fa-building"></i>
+                {{ lead.industry }}
+            </span>
+
+            <span>
+                <i class="fa-solid fa-location-dot"></i>
+                {{ lead.city }}
+            </span>
+
+            <span>
+                <i class="fa-solid fa-user-tie"></i>
+                {{ lead.authority }}
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="lead-command-actions">
+
+        <a class="btn btn-secondary"
+           href="{% url 'run_agents' lead.id %}">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            Run AI Agents
+
+        </a>
+
+
+        <a class="btn btn-primary"
+           href="{% url 'outreach' lead.id %}">
+
+            <i class="fa-solid fa-paper-plane"></i>
+            Generate Outreach
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PRIMARY AI DECISION AREA
+========================================================= -->
+<section class="lead-decision-grid">
+
+
+    <!-- DYNAMIC SCORE -->
+    <div class="lead-score-panel">
+
+        <div class="lead-score-heading">
+
+            <div>
+                <span class="section-eyebrow">
+                    BEHAVIOUR-DRIVEN INTELLIGENCE
+                </span>
+
+                <h3>
+                    Dynamic Lead Score
+                </h3>
+            </div>
+
+
+            <div class="realtime-chip">
+                <span></span>
+                REAL TIME
+            </div>
+
+        </div>
+
+
+        <div class="lead-score-content">
+
+            <div class="main-score-circle
+                {% if lead.dynamic_score >= 80 %}
+                    score-hot
+                {% elif lead.dynamic_score >= 60 %}
+                    score-warm
+                {% elif lead.dynamic_score >= 40 %}
+                    score-qualified
+                {% else %}
+                    score-cold
+                {% endif %}
+            ">
+
+                <strong>
+                    {{ lead.dynamic_score }}
+                </strong>
+
+                <span>
+                    /100
+                </span>
+
+            </div>
+
+
+            <div class="score-details">
+
+                <div class="score-status">
+
+                    <span class="stage-badge {{ lead.stage|lower }}">
+
+                        {% if lead.stage == "Hot" %}
+                            <i class="fa-solid fa-fire"></i>
+                        {% endif %}
+
+                        {{ lead.stage }}
+
+                    </span>
+
+                </div>
+
+
+                <div class="conversion-stat">
+
+                    <small>
+                        CONVERSION PROBABILITY
+                    </small>
+
+                    <strong>
+                        {{ lead.conversion_probability }}%
+                    </strong>
+
+                </div>
+
+
+                <div class="lead-score-meter">
+
+                    <div class="meter-track">
+
+                        <div class="meter-progress"
+                             style="width: {{ lead.dynamic_score }}%;">
+                        </div>
+
+                    </div>
+
+
+                    <div class="meter-labels">
+
+                        <span>Cold</span>
+                        <span>Qualified</span>
+                        <span>Warm</span>
+                        <span>Hot</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="score-live-message">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <span>
+                Score recalculates automatically whenever
+                customer behaviour changes.
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- NEXT BEST ACTION -->
+    <div class="next-action-panel">
+
+        <div class="nba-top">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    AI DECISION ENGINE
+                </span>
+
+                <h3>
+                    Next Best Action
+                </h3>
+
+            </div>
+
+
+            <div class="nba-brain">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+        </div>
+
+
+        <div class="nba-recommendation">
+
+            <small>
+                AI RECOMMENDS
+            </small>
+
+            <h2>
+                {{ lead.next_best_action }}
+            </h2>
+
+            <p>
+                {{ lead.next_action_reason }}
+            </p>
+
+        </div>
+
+
+        <div class="nba-priority">
+
+            <div>
+
+                <small>
+                    SALES PRIORITY
+                </small>
+
+                <strong>
+                    {% if lead.dynamic_score >= 80 %}
+                        Immediate Action
+                    {% elif lead.dynamic_score >= 60 %}
+                        High Priority
+                    {% elif lead.dynamic_score >= 40 %}
+                        Active Nurture
+                    {% else %}
+                        Early Stage
+                    {% endif %}
+                </strong>
+
+            </div>
+
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     AI INTELLIGENCE CARDS
+========================================================= -->
+<section class="lead-intelligence-grid">
+
+
+    <!-- COMPANY RESEARCH -->
+    <div class="intelligence-card">
+
+        <div class="intelligence-card-header">
+
+            <div class="intelligence-icon">
+                <i class="fa-solid fa-building"></i>
+            </div>
+
+            <div>
+                <small>RESEARCH AGENT</small>
+                <h3>Company Intelligence</h3>
+            </div>
+
+            <span class="agent-complete">
+                AI
+            </span>
+
+        </div>
+
+
+        <div class="research-summary">
+
+            <p>
+                {{ lead.research_summary|default:'Run AI Agents to generate intelligent company research and fleet opportunity analysis.' }}
+            </p>
+
+        </div>
+
+
+        <div class="intelligence-metrics">
+
+            <div class="intel-metric">
+
+                <small>
+                    EXISTING FLEET
+                </small>
+
+                <strong>
+                    {{ lead.existing_fleet_size }}
+                </strong>
+
+                <span>
+                    Vehicles
+                </span>
+
+            </div>
+
+
+            <div class="intel-metric highlight-metric">
+
+                <small>
+                    ESTIMATED EV NEED
+                </small>
+
+                <strong>
+                    {{ lead.estimated_ev_requirement }}
+                </strong>
+
+                <span>
+                    Vehicles
+                </span>
+
+            </div>
+
+
+            <div class="intel-metric">
+
+                <small>
+                    MONTHLY USAGE
+                </small>
+
+                <strong>
+                    {{ lead.monthly_km_per_vehicle }}
+                </strong>
+
+                <span>
+                    KM / Vehicle
+                </span>
+
+            </div>
+
+
+            <div class="intel-metric">
+
+                <small>
+                    BUDGET / VEHICLE
+                </small>
+
+                <strong>
+                    ₹{{ lead.budget_per_vehicle }}
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PRODUCT MATCH -->
+    <div class="intelligence-card product-match-card">
+
+        <div class="intelligence-card-header">
+
+            <div class="intelligence-icon">
+                <i class="fa-solid fa-scooter"></i>
+            </div>
+
+            <div>
+                <small>PRODUCT MATCHING AGENT</small>
+                <h3>Recommended EV</h3>
+            </div>
+
+            <span class="match-chip">
+                BEST MATCH
+            </span>
+
+        </div>
+
+
+        {% if lead.recommended_product %}
+
+        <div class="recommended-product">
+
+            <div class="product-visual">
+
+                <i class="fa-solid fa-motorcycle"></i>
+
+            </div>
+
+
+            <div>
+
+                <small>
+                    AI SELECTED
+                </small>
+
+                <h2>
+                    {{ lead.recommended_product.name }}
+                </h2>
+
+                <p>
+                    {{ lead.recommended_product.best_for }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-specs">
+
+            <div>
+
+                <i class="fa-solid fa-road"></i>
+
+                <span>
+                    Range
+                </span>
+
+                <strong>
+                    {{ lead.recommended_product.range_km }} km
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-weight-hanging"></i>
+
+                <span>
+                    Payload
+                </span>
+
+                <strong>
+                    {{ lead.recommended_product.payload_kg }} kg
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                <span>
+                    Price
+                </span>
+
+                <strong>
+                    ₹{{ lead.recommended_product.price }}
+                </strong>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-intelligence">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            <p>
+                Run AI Agents to identify the
+                best EV for this prospect.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+
+    <!-- ROI INTELLIGENCE -->
+    <div class="intelligence-card roi-card">
+
+        <div class="intelligence-card-header">
+
+            <div class="intelligence-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <div>
+                <small>ROI INTELLIGENCE</small>
+                <h3>Fleet Business Impact</h3>
+            </div>
+
+        </div>
+
+
+        <div class="annual-saving">
+
+            <small>
+                ESTIMATED ANNUAL OPERATING SAVINGS
+            </small>
+
+            <div class="big-money">
+                ₹{{ roi.annual_savings }}
+            </div>
+
+            <span>
+                Potential savings through fleet electrification
+            </span>
+
+        </div>
+
+
+        <div class="roi-stats">
+
+            <div>
+
+                <small>
+                    MONTHLY SAVINGS
+                </small>
+
+                <strong>
+                    ₹{{ roi.monthly_savings }}
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <small>
+                    FLEET ANALYZED
+                </small>
+
+                <strong>
+                    {{ roi.vehicles }}
+                </strong>
+
+                <span>
+                    Vehicles
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <small>
+                    EST. PAYBACK
+                </small>
+
+                <strong>
+                    {{ roi.payback_months }}
+                </strong>
+
+                <span>
+                    Months
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LIVE CUSTOMER BEHAVIOUR SIMULATION
+========================================================= -->
+<section class="behaviour-lab">
+
+    <div class="behaviour-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                LIVE HACKATHON DEMONSTRATION
+            </span>
+
+            <h2>
+                Customer Behaviour → AI Score → Sales Action
+            </h2>
+
+            <p>
+                Trigger a customer interaction below and watch
+                EVLeadAI recalculate lead priority instantly.
+            </p>
+
+        </div>
+
+
+        <div class="simulation-status">
+
+            <span class="pulse-dot"></span>
+
+            LIVE SIMULATION
+
+        </div>
+
+    </div>
+
+
+    <div class="behaviour-flow-labels">
+
+        <span>
+            CUSTOMER SIGNAL
+        </span>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+        <span>
+            ENGAGEMENT AGENT
+        </span>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+        <span>
+            DYNAMIC SCORING
+        </span>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+        <span>
+            NEXT BEST ACTION
+        </span>
+
+    </div>
+
+
+    <div class="event-grid">
+
+        {% for key, label in event_types %}
+
+        <a href="{% url 'event' lead.id key %}"
+           class="behaviour-event">
+
+            <div class="event-plus">
+                +
+            </div>
+
+            <div>
+
+                <small>
+                    CUSTOMER EVENT
+                </small>
+
+                <strong>
+                    {{ label }}
+                </strong>
+
+            </div>
+
+
+            <i class="fa-solid fa-bolt"></i>
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+
+    <div class="demo-instruction">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        <div>
+
+            <strong>
+                Stage Demo Tip
+            </strong>
+
+            <span>
+                Trigger Email Open → Pricing Click → WhatsApp Reply →
+                Quotation → Demo Request and show how the AI score
+                and next-best-action evolve.
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ENGAGEMENT + SCORE HISTORY
+========================================================= -->
+<section class="activity-grid">
+
+
+    <!-- ENGAGEMENT TIMELINE -->
+    <div class="activity-panel">
+
+        <div class="activity-header">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    CUSTOMER JOURNEY
+                </span>
+
+                <h2>
+                    Engagement Timeline
+                </h2>
+
+            </div>
+
+
+            <div class="activity-icon">
+                <i class="fa-solid fa-satellite-dish"></i>
+            </div>
+
+        </div>
+
+
+        <div class="activity-timeline">
+
+            {% for e in lead.events.all reversed %}
+
+            <div class="activity-item">
+
+                <div class="timeline-marker">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+
+                <div class="activity-content">
+
+                    <strong>
+                        {{ e.get_event_type_display }}
+                    </strong>
+
+                    <span>
+                        Customer behaviour captured by
+                        Engagement Agent
+                    </span>
+
+                    <small>
+                        <i class="fa-regular fa-clock"></i>
+                        {{ e.created_at }}
+                    </small>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="activity-empty">
+
+                <i class="fa-solid fa-satellite-dish"></i>
+
+                <strong>
+                    No customer engagement yet
+                </strong>
+
+                <span>
+                    Trigger an event above to start
+                    the live AI scoring demonstration.
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SCORE HISTORY -->
+    <div class="activity-panel">
+
+        <div class="activity-header">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    EXPLAINABLE AI
+                </span>
+
+                <h2>
+                    Dynamic Score History
+                </h2>
+
+            </div>
+
+
+            <div class="activity-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+        </div>
+
+
+        <div class="score-history">
+
+            {% for h in history reversed %}
+
+            <div class="score-history-item">
+
+                <div class="score-change">
+
+                    <span class="old-score">
+                        {{ h.old_score }}
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <span class="new-score">
+                        {{ h.new_score }}
+                    </span>
+
+                </div>
+
+
+                <div class="score-history-detail">
+
+                    <strong>
+                        {{ h.reason }}
+                    </strong>
+
+                    <small>
+                        <i class="fa-regular fa-clock"></i>
+                        {{ h.created_at }}
+                    </small>
+
+                </div>
+
+
+                <div class="score-delta">
+
+                    {% if h.new_score > h.old_score %}
+
+                        <span class="positive">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            Increased
+                        </span>
+
+                    {% elif h.new_score < h.old_score %}
+
+                        <span class="negative">
+                            <i class="fa-solid fa-arrow-down"></i>
+                            Decreased
+                        </span>
+
+                    {% else %}
+
+                        <span>
+                            No Change
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="activity-empty">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <strong>
+                    No score movement yet
+                </strong>
+
+                <span>
+                    AI score changes will appear here
+                    with the reason behind every decision.
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     AI EXPLAINABILITY FOOTER
+========================================================= -->
+<section class="explainability-strip">
+
+    <div class="explainability-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+    </div>
+
+
+    <div>
+
+        <small>
+            EXPLAINABLE & HUMAN-CENTERED AI
+        </small>
+
+        <h3>
+            Every recommendation has a reason.
+        </h3>
+
+        <p>
+            EVLeadAI combines business fit, product suitability,
+            engagement signals and purchase intent to assist
+            sales teams in making faster, data-driven decisions.
+        </p>
+
+    </div>
+
+
+    <div class="explainability-tags">
+
+        <span>
+            <i class="fa-solid fa-check"></i>
+            Transparent Scoring
+        </span>
+
+        <span>
+            <i class="fa-solid fa-check"></i>
+            Human-in-the-Loop
+        </span>
+
+        <span>
+            <i class="fa-solid fa-check"></i>
+            Real-Time Learning
+        </span>
+
+    </div>
+
+</section>
+
+{% endblock %}
