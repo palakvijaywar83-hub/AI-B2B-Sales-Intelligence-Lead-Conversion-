@@ -1,0 +1,1258 @@
+{% extends 'base.html' %}
+
+{% block title %}Dynamic Scoring · EVLeadAI{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<div class="lead-list-header">
+
+    <div class="lead-list-title">
+
+        <span class="eyebrow">
+            <i class="fa-solid fa-chart-line"></i>
+            BEHAVIOURAL INTELLIGENCE ENGINE
+        </span>
+
+        <h1>
+            Dynamic Lead <span>Scoring</span>
+        </h1>
+
+        <p>
+            Lead priority changes continuously as prospects interact
+            with outreach, pricing, product information and the sales team.
+        </p>
+
+    </div>
+
+
+    <div class="lead-command-actions">
+
+        <div class="table-ai-status">
+
+            <span class="live-dot"></span>
+
+            <div>
+                <small>SCORING ENGINE</small>
+                <strong>LIVE</strong>
+            </div>
+
+        </div>
+
+
+        <a href="{% url 'agentic_ai' %}"
+           class="btn btn-secondary">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            Agentic AI
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     INTELLIGENCE STRIP
+========================================================= -->
+
+<div class="lead-intelligence-strip">
+
+    <div class="lead-strip-intro">
+
+        <div class="strip-ai-icon">
+            <i class="fa-solid fa-wave-square"></i>
+        </div>
+
+        <div>
+
+            <small>
+                BEHAVIOUR-DRIVEN SCORING
+            </small>
+
+            <strong>
+                Every meaningful customer signal can change sales priority
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="strip-process">
+
+        <div>
+            <i class="fa-solid fa-envelope-open"></i>
+            Open
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-arrow-pointer"></i>
+            Click
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-brands fa-whatsapp"></i>
+            Reply
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            Quote
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-calendar-check"></i>
+            Demo
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div class="strip-result">
+            <i class="fa-solid fa-bolt"></i>
+            New Priority
+        </div>
+
+    </div>
+
+
+    <div class="table-ai-status">
+
+        <span class="live-dot"></span>
+
+        <div>
+            <small>RECALCULATION</small>
+            <strong>CONTINUOUS</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     EXECUTIVE KPI SUMMARY
+========================================================= -->
+
+<section class="kpi-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-eyebrow">
+                REAL-TIME LEAD INTELLIGENCE
+            </span>
+
+            <h2>
+                Dynamic Scoring Overview
+            </h2>
+
+        </div>
+
+
+        <div class="live-refresh">
+            <span></span>
+            Behaviour monitored continuously
+        </div>
+
+    </div>
+
+
+    <div class="executive-kpis">
+
+        <!-- SCORE RANGE -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon score-icon">
+                    <i class="fa-solid fa-gauge-high"></i>
+                </div>
+
+                <span class="kpi-status">
+                    RANGE
+                </span>
+
+            </div>
+
+            <small>DYNAMIC SCORE</small>
+
+            <strong>
+                0–100
+            </strong>
+
+            <p>
+                Behaviour-driven lead priority
+            </p>
+
+        </div>
+
+
+        <!-- TOTAL LEADS -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+
+                <span class="kpi-status">
+                    MONITORED
+                </span>
+
+            </div>
+
+            <small>LEADS MONITORED</small>
+
+            <strong>
+                {{ total_leads }}
+            </strong>
+
+            <p>
+                Prospects in scoring engine
+            </p>
+
+        </div>
+
+
+        <!-- HIGH INTENT -->
+
+        <div class="kpi-card highlight">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon hot">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+
+                <span class="kpi-status hot-status">
+                    80+
+                </span>
+
+            </div>
+
+            <small>HIGH INTENT THRESHOLD</small>
+
+            <strong>
+                80+
+            </strong>
+
+            <p>
+                Priority sales opportunity
+            </p>
+
+        </div>
+
+
+        <!-- ENGINE -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-rotate"></i>
+                </div>
+
+                <span class="kpi-status">
+                    ACTIVE
+                </span>
+
+            </div>
+
+            <small>SCORING ENGINE</small>
+
+            <strong>
+                LIVE
+            </strong>
+
+            <p>
+                Recalculates after customer signals
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BEHAVIOURAL SIGNALS
+========================================================= -->
+
+<div class="dashboard-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                BEHAVIOURAL SIGNALS
+            </span>
+
+            <h2>
+                How Engagement Changes Lead Score
+            </h2>
+
+            <p>
+                Every tracked interaction contributes to the
+                prospect's changing sales priority.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <div>
+                <small>SCORING LOGIC</small>
+                <strong>EXPLAINABLE</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="scoring-signals">
+
+        <div class="signal">
+
+            <i class="fa-solid fa-envelope-open"></i>
+
+            <span>
+                Email Open
+            </span>
+
+            <strong>
+                +2
+            </strong>
+
+        </div>
+
+
+        <div class="signal">
+
+            <i class="fa-solid fa-arrow-pointer"></i>
+
+            <span>
+                Pricing Click
+            </span>
+
+            <strong>
+                +5
+            </strong>
+
+        </div>
+
+
+        <div class="signal">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            <span>
+                WhatsApp Reply
+            </span>
+
+            <strong>
+                +8
+            </strong>
+
+        </div>
+
+
+        <div class="signal">
+
+            <i class="fa-solid fa-file-arrow-down"></i>
+
+            <span>
+                Brochure Download
+            </span>
+
+            <strong>
+                +5
+            </strong>
+
+        </div>
+
+
+        <div class="signal">
+
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+
+            <span>
+                Quotation Request
+            </span>
+
+            <strong>
+                +15
+            </strong>
+
+        </div>
+
+
+        <div class="signal">
+
+            <i class="fa-solid fa-calendar-check"></i>
+
+            <span>
+                Demo Request
+            </span>
+
+            <strong>
+                +20
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SCORE JOURNEY
+========================================================= -->
+
+<div class="dashboard-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                EXAMPLE SCORE JOURNEY
+            </span>
+
+            <h2>
+                From Prospect to High Intent Lead
+            </h2>
+
+            <p>
+                Observe how customer behaviour changes both
+                the lead score and sales priority.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <span class="live-dot"></span>
+
+            <div>
+                <small>BEHAVIOUR</small>
+                <strong>CHANGES PRIORITY</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="strip-process">
+
+        <div>
+
+            <i class="fa-solid fa-user-plus"></i>
+
+            Initial Lead
+
+            <strong>
+                42
+            </strong>
+
+        </div>
+
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+
+        <div>
+
+            <i class="fa-solid fa-envelope-open"></i>
+
+            Email Open
+
+            <strong>
+                44
+            </strong>
+
+        </div>
+
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+
+        <div>
+
+            <i class="fa-solid fa-arrow-pointer"></i>
+
+            Pricing Click
+
+            <strong>
+                49
+            </strong>
+
+        </div>
+
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+
+        <div>
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            WhatsApp Reply
+
+            <strong>
+                57
+            </strong>
+
+        </div>
+
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+
+        <div>
+
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+
+            Quotation
+
+            <strong>
+                72
+            </strong>
+
+        </div>
+
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+
+        <div class="strip-result">
+
+            <i class="fa-solid fa-calendar-check"></i>
+
+            Demo Request
+
+            <strong>
+                92
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="lead-scoring-explanation">
+
+        <div class="scoring-explanation-left">
+
+            <div class="explanation-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <div>
+
+                <small>
+                    DYNAMIC RESULT
+                </small>
+
+                <h3>
+                    Dynamic Score: 42 → 92
+                </h3>
+
+                <p>
+                    Stronger buying signals move the prospect
+                    from nurture toward immediate sales attention.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="next-action-cell">
+
+            <div class="action-bolt">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div>
+
+                <small>
+                    NEW NEXT-BEST-ACTION
+                </small>
+
+                <strong>
+                    Schedule Fleet Demo
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     LIVE DYNAMIC SCORE MONITOR
+========================================================= -->
+
+<div class="dashboard-panel leads-command-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                LIVE LEAD PRIORITY
+            </span>
+
+            <h2>
+                Dynamic Score Monitor
+            </h2>
+
+            <p>
+                Select a prospect to simulate engagement behaviour
+                and observe the score and Next-Best-Action change.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <span class="live-dot"></span>
+
+            <div>
+                <small>BEHAVIOURAL ENGINE</small>
+                <strong>MONITORING</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-responsive">
+
+        <table class="executive-table">
+
+            <thead>
+
+                <tr>
+                    <th>Company</th>
+                    <th>Stage</th>
+                    <th>Conversion</th>
+                    <th>Dynamic Score</th>
+                    <th>Priority</th>
+                    <th>Next Best Action</th>
+                    <th></th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            {% for l in leads %}
+
+                <tr {% if l.dynamic_score >= 90 %}class="high-priority-row"{% endif %}>
+
+                    <!-- COMPANY -->
+
+                    <td>
+
+                        <a href="{% url 'lead_detail' l.id %}"
+                           class="company-cell">
+
+                            <div class="company-avatar">
+                                {{ l.company_name|slice:":2"|upper }}
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    {{ l.company_name }}
+                                </strong>
+
+                                <small>
+
+                                    {{ l.industry }}
+
+                                    {% if l.city %}
+                                        · {{ l.city }}
+                                    {% endif %}
+
+                                </small>
+
+                            </div>
+
+                        </a>
+
+                    </td>
+
+
+                    <!-- STAGE -->
+
+                    <td>
+
+                        <span class="stage-badge {{ l.stage|lower }}">
+
+                            {% if l.stage == "Hot" %}
+
+                                <i class="fa-solid fa-fire"></i>
+
+                            {% elif l.stage == "Warm" %}
+
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                            {% else %}
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                            {% endif %}
+
+                            {{ l.stage }}
+
+                        </span>
+
+                    </td>
+
+
+                    <!-- CONVERSION -->
+
+                    <td>
+
+                        <div class="probability-cell">
+
+                            <div class="probability-value">
+
+                                <strong>
+                                    {{ l.conversion_probability }}
+                                </strong>
+
+                                <span>%</span>
+
+                            </div>
+
+
+                            <div class="probability-bar">
+
+                                <div style="width:{{ l.conversion_probability }}%;">
+                                </div>
+
+                            </div>
+
+
+                            <small>
+                                Conversion probability
+                            </small>
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- DYNAMIC SCORE -->
+
+                    <td>
+
+                        <div class="lead-score-cell">
+
+                            {% if l.dynamic_score >= 80 %}
+
+                                <div class="score-circle score-hot">
+                                    {{ l.dynamic_score }}
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        AI SCORE
+                                    </small>
+
+                                    <span class="score-label hot-label">
+                                        HIGH INTENT
+                                    </span>
+
+                                    <div class="mini-score-bar">
+                                        <span style="width:{{ l.dynamic_score }}%;"></span>
+                                    </div>
+
+                                </div>
+
+
+                            {% elif l.dynamic_score >= 60 %}
+
+                                <div class="score-circle score-warm">
+                                    {{ l.dynamic_score }}
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        AI SCORE
+                                    </small>
+
+                                    <span class="score-label warm-label">
+                                        WARM
+                                    </span>
+
+                                    <div class="mini-score-bar">
+                                        <span style="width:{{ l.dynamic_score }}%;"></span>
+                                    </div>
+
+                                </div>
+
+
+                            {% else %}
+
+                                <div class="score-circle score-qualified">
+                                    {{ l.dynamic_score }}
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        AI SCORE
+                                    </small>
+
+                                    <span class="score-label qualified-label">
+
+                                        {% if l.dynamic_score >= 40 %}
+                                            QUALIFIED
+                                        {% else %}
+                                            NURTURE
+                                        {% endif %}
+
+                                    </span>
+
+                                    <div class="mini-score-bar">
+                                        <span style="width:{{ l.dynamic_score }}%;"></span>
+                                    </div>
+
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- PRIORITY -->
+
+                    <td>
+
+                        {% if l.dynamic_score >= 80 %}
+
+                            <span class="stage-badge hot">
+                                <i class="fa-solid fa-fire"></i>
+                                HIGH INTENT
+                            </span>
+
+                        {% elif l.dynamic_score >= 60 %}
+
+                            <span class="stage-badge warm">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                WARM
+                            </span>
+
+                        {% elif l.dynamic_score >= 40 %}
+
+                            <span class="stage-badge qualified">
+                                QUALIFIED
+                            </span>
+
+                        {% else %}
+
+                            <span class="stage-badge">
+                                NURTURE
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- NEXT BEST ACTION -->
+
+                    <td>
+
+                        <div class="next-action-cell">
+
+                            <div class="action-bolt">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+
+                            <div>
+
+                                <small>
+                                    NEXT BEST ACTION
+                                </small>
+
+                                <strong>
+                                    {{ l.next_best_action }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- SIMULATE -->
+
+                    <td>
+
+                        <a href="{% url 'lead_detail' l.id %}"
+                           class="lead-open-button"
+                           title="Open Lead and Simulate Behaviour">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+
+            {% empty %}
+
+                <tr>
+
+                    <td colspan="7">
+
+                        <div class="leads-empty-state">
+
+                            <div class="empty-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+
+                            <h3>
+                                No Lead Scores Available
+                            </h3>
+
+                            <p>
+                                Import or seed leads to start the
+                                Dynamic Scoring Engine.
+                            </p>
+
+                            <a href="{% url 'leads' %}"
+                               class="btn btn-primary">
+
+                                <i class="fa-solid fa-bullseye"></i>
+                                Open Lead Intelligence
+
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     STATIC VS DYNAMIC
+========================================================= -->
+
+<div class="dashboard-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                WHY DYNAMIC SCORING?
+            </span>
+
+            <h2>
+                Static Lead Score vs EVLeadAI
+            </h2>
+
+            <p>
+                The core difference is how quickly sales priority
+                responds to new customer behaviour.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <div>
+                <small>CORE DIFFERENTIATOR</small>
+                <strong>DYNAMIC INTELLIGENCE</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="executive-kpis">
+
+        <!-- TRADITIONAL -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+
+                <span class="kpi-status">
+                    TRADITIONAL
+                </span>
+
+            </div>
+
+            <small>STATIC CRM APPROACH</small>
+
+            <strong>
+                Static
+            </strong>
+
+            <p>
+                Lead score may require manual review when
+                customer behaviour changes.
+            </p>
+
+        </div>
+
+
+        <!-- EVLEADAI -->
+
+        <div class="kpi-card highlight">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon score-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <span class="kpi-status">
+                    EVLEADAI
+                </span>
+
+            </div>
+
+            <small>BEHAVIOUR-DRIVEN APPROACH</small>
+
+            <strong>
+                Dynamic
+            </strong>
+
+            <p>
+                Tracked customer signals can immediately
+                change lead priority.
+            </p>
+
+        </div>
+
+
+        <!-- PRIORITY -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
+
+                <span class="kpi-status">
+                    PRIORITY
+                </span>
+
+            </div>
+
+            <small>SALES PRIORITIZATION</small>
+
+            <strong>
+                Live
+            </strong>
+
+            <p>
+                Stronger intent automatically moves prospects upward.
+            </p>
+
+        </div>
+
+
+        <!-- NBA -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <span class="kpi-status">
+                    ACTION
+                </span>
+
+            </div>
+
+            <small>NEXT-BEST-ACTION</small>
+
+            <strong>
+                Adaptive
+            </strong>
+
+            <p>
+                Recommended sales action changes with lead behaviour.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     EXPLAINABILITY STRIP
+========================================================= -->
+
+<div class="lead-intelligence-strip">
+
+    <div class="lead-strip-intro">
+
+        <div class="strip-ai-icon">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+        </div>
+
+        <div>
+
+            <small>
+                EXPLAINABLE SCORING
+            </small>
+
+            <strong>
+                Every score movement can be traced to customer behaviour
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="strip-process">
+
+        <div>
+            <i class="fa-solid fa-eye"></i>
+            Observe
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-plus-minus"></i>
+            Update
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-chart-line"></i>
+            Re-score
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div class="strip-result">
+            <i class="fa-solid fa-bolt"></i>
+            Recommend
+        </div>
+
+    </div>
+
+
+    <a href="{% url 'recommendations' %}"
+       class="btn btn-secondary">
+
+        <i class="fa-solid fa-brain"></i>
+        AI Recommendations
+
+    </a>
+
+</div>
+
+
+<!-- =========================================================
+     NATIONAL DEMO CLOSING
+========================================================= -->
+
+<div class="lead-stage-message">
+
+    <div>
+
+        <span>
+            EVLEADAI
+        </span>
+
+        <strong>
+            BEHAVIOURAL INTELLIGENCE
+        </strong>
+
+    </div>
+
+
+    <h2>
+        The lead changes.
+        <em>The score changes. The action changes.</em>
+    </h2>
+
+
+    <a href="{% url 'recommendations' %}"
+       class="lead-open-button"
+       title="View AI Recommendations">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</div>
+
+{% endblock %}

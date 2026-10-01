@@ -1,8 +1,10 @@
-
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -18,8 +20,12 @@
     </title>
 
     <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
@@ -34,19 +40,25 @@
 
     {% block extra_css %}
     {% endblock %}
+
 </head>
 
 
 <body>
 
+
 <div class="app-shell">
 
-    <!-- ======================================================
+
+    <!-- =====================================================
          SIDEBAR
-    ======================================================= -->
+    ====================================================== -->
+
     <aside class="sidebar">
 
-        <!-- Brand -->
+
+        <!-- BRAND -->
+
         <div class="brand">
 
             <div class="brand-icon">
@@ -54,6 +66,7 @@
             </div>
 
             <div class="brand-content">
+
                 <div class="brand-name">
                     EVLead<span>AI</span>
                 </div>
@@ -61,24 +74,37 @@
                 <small>
                     Agentic Sales Intelligence
                 </small>
+
             </div>
 
         </div>
 
 
-        <!-- Platform Badge -->
+        <!-- PLATFORM STATUS -->
+
         <div class="platform-badge">
+
             <span class="status-dot"></span>
+
             AI Platform Online
+
         </div>
 
 
-        <!-- Navigation -->
+
+        <!-- =================================================
+             COMMAND CENTER
+        ================================================== -->
+
         <div class="nav-section-title">
             COMMAND CENTER
         </div>
 
+
         <nav class="sidebar-nav">
+
+
+            <!-- EXECUTIVE DASHBOARD -->
 
             <a href="{% url 'dashboard' %}"
                class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
@@ -88,8 +114,12 @@
                 <span>
                     Executive Dashboard
                 </span>
+
             </a>
 
+
+
+            <!-- LEAD INTELLIGENCE -->
 
             <a href="{% url 'leads' %}"
                class="{% if request.resolver_match.url_name == 'leads' %}active{% endif %}">
@@ -99,10 +129,15 @@
                 <span>
                     Lead Intelligence
                 </span>
+
             </a>
 
 
-            <a href="{% url 'leads' %}?stage=Hot">
+
+            <!-- HIGH INTENT LEADS -->
+
+            <a href="{% url 'high_intent_leads' %}"
+               class="{% if request.resolver_match.url_name == 'high_intent_leads' %}active{% endif %}">
 
                 <i class="fa-solid fa-fire"></i>
 
@@ -113,10 +148,17 @@
                 <span class="nav-badge">
                     AI
                 </span>
+
             </a>
+
 
         </nav>
 
+
+
+        <!-- =================================================
+             INTELLIGENCE
+        ================================================== -->
 
         <div class="nav-section-title">
             INTELLIGENCE
@@ -125,37 +167,58 @@
 
         <nav class="sidebar-nav">
 
-            <a href="{% url 'leads' %}">
+
+            <!-- AI RECOMMENDATIONS -->
+
+            <a href="{% url 'recommendations' %}"
+               class="{% if request.resolver_match.url_name == 'recommendations' %}active{% endif %}">
 
                 <i class="fa-solid fa-brain"></i>
 
                 <span>
                     AI Recommendations
                 </span>
+
             </a>
 
 
-            <a href="{% url 'leads' %}">
+
+            <!-- PRODUCT MATCHING -->
+
+            <a href="{% url 'product_matching' %}"
+               class="{% if request.resolver_match.url_name == 'product_matching' %}active{% endif %}">
 
                 <i class="fa-solid fa-cubes"></i>
 
                 <span>
                     Product Matching
                 </span>
+
             </a>
 
 
-            <a href="{% url 'leads' %}">
+
+            <!-- DYNAMIC SCORING -->
+
+            <a href="{% url 'dynamic_scoring' %}"
+               class="{% if request.resolver_match.url_name == 'dynamic_scoring' %}active{% endif %}">
 
                 <i class="fa-solid fa-arrow-trend-up"></i>
 
                 <span>
                     Dynamic Scoring
                 </span>
+
             </a>
+
 
         </nav>
 
+
+
+        <!-- =================================================
+             SYSTEM
+        ================================================== -->
 
         <div class="nav-section-title">
             SYSTEM
@@ -164,6 +227,8 @@
 
         <nav class="sidebar-nav">
 
+            <!-- ADMINISTRATION -->
+
             <a href="/admin/">
 
                 <i class="fa-solid fa-gear"></i>
@@ -171,21 +236,32 @@
                 <span>
                     Administration
                 </span>
+
             </a>
 
         </nav>
 
 
-        <!-- AI Agent Status -->
-        <div class="ai-status-card">
+
+        <!-- =================================================
+             AGENTIC AI CONTROL CENTER
+        ================================================== -->
+
+        <a href="{% url 'agentic_ai' %}"
+           class="ai-status-card ai-status-link
+           {% if request.resolver_match.url_name == 'agentic_ai' %}active{% endif %}">
 
             <div class="ai-status-header">
 
                 <div class="ai-pulse">
+
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
+
                 </div>
 
+
                 <div>
+
                     <strong>
                         Agentic AI
                     </strong>
@@ -193,19 +269,38 @@
                     <small>
                         Orchestration Engine
                     </small>
+
                 </div>
 
+
+                <i class="fa-solid fa-chevron-right ai-card-arrow"></i>
+
             </div>
+
 
             <div class="ai-running">
+
                 <span></span>
+
                 8 Agents Operational
+
             </div>
 
-        </div>
+
+            <div class="ai-control-hint">
+
+                <i class="fa-solid fa-play"></i>
+
+                Open AI Control Center
+
+            </div>
+
+        </a>
 
 
-        <!-- Footer -->
+
+        <!-- SIDEBAR FOOTER -->
+
         <div class="sidebar-footer">
 
             <span>
@@ -218,32 +313,46 @@
 
         </div>
 
+
     </aside>
 
 
 
-    <!-- ======================================================
+    <!-- =====================================================
          MAIN APPLICATION
-    ======================================================= -->
+    ====================================================== -->
+
     <main class="main-content">
 
 
-        <!-- ==================================================
+        <!-- =================================================
              TOP HEADER
-        =================================================== -->
+        ================================================== -->
+
         <header class="top-header">
+
 
             <div class="header-left">
 
-                <div class="mobile-menu">
+
+                <!-- MOBILE MENU -->
+
+                <button type="button"
+                        class="mobile-menu"
+                        id="mobileMenuButton"
+                        aria-label="Open navigation">
+
                     <i class="fa-solid fa-bars"></i>
-                </div>
+
+                </button>
+
 
                 <div>
 
                     <h1>
                         EV B2B Sales Intelligence
                     </h1>
+
 
                     <div class="process-flow">
 
@@ -267,26 +376,30 @@
 
                         <i class="fa-solid fa-chevron-right"></i>
 
-                        <strong>
-                            Act
-                        </strong>
+                        <strong>Act</strong>
 
                     </div>
 
                 </div>
 
+
             </div>
 
+
+
+            <!-- HEADER RIGHT -->
 
             <div class="header-right">
 
 
-                <!-- AI Status -->
+                <!-- AI ENGINE STATUS -->
+
                 <div class="live-ai">
 
                     <span class="live-dot"></span>
 
                     <div>
+
                         <small>
                             AI ENGINE
                         </small>
@@ -294,21 +407,20 @@
                         <strong>
                             LIVE
                         </strong>
+
                     </div>
 
                 </div>
 
 
-                <!-- Hackathon -->
+
+                <!-- HACKATHON BADGE -->
+
                 <div class="hackathon-badge">
 
                     <i class="fa-solid fa-award"></i>
 
                     <div>
-
-                        <small>
-                            NATIONAL
-                        </small>
 
                         <strong>
                             HACKATHON 2026
@@ -319,7 +431,9 @@
                 </div>
 
 
-                <!-- User -->
+
+                <!-- PROFILE -->
+
                 <div class="profile">
 
                     <div class="profile-avatar">
@@ -327,6 +441,7 @@
                     </div>
 
                     <div>
+
                         <strong>
                             Sales Command
                         </strong>
@@ -334,21 +449,25 @@
                         <small>
                             Administrator
                         </small>
+
                     </div>
 
                 </div>
 
+
             </div>
+
 
         </header>
 
 
 
-        <!-- ==================================================
-             AI PIPELINE STRIP
-        =================================================== -->
+        <!-- =================================================
+             LIVE AGENTIC AI PIPELINE
+        ================================================== -->
 
         <section class="ai-pipeline">
+
 
             <div class="pipeline-title">
 
@@ -361,78 +480,152 @@
             </div>
 
 
+
             <div class="pipeline-agents">
 
+
+                <!-- DISCOVERY -->
+
                 <div class="pipeline-agent active">
+
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    Discovery
+
+                    <span>
+                        Discovery
+                    </span>
+
                 </div>
+
 
                 <div class="pipeline-line"></div>
 
 
+
+                <!-- RESEARCH -->
+
                 <div class="pipeline-agent active">
+
                     <i class="fa-solid fa-building"></i>
-                    Research
+
+                    <span>
+                        Research
+                    </span>
+
                 </div>
+
 
                 <div class="pipeline-line"></div>
 
 
+
+                <!-- PRODUCT MATCH -->
+
                 <div class="pipeline-agent active">
+
                     <i class="fa-solid fa-cubes"></i>
-                    Product Match
+
+                    <span>
+                        Product Match
+                    </span>
+
                 </div>
+
 
                 <div class="pipeline-line"></div>
 
 
+
+                <!-- PERSONALIZATION -->
+
                 <div class="pipeline-agent active">
+
                     <i class="fa-solid fa-envelope"></i>
-                    Personalization
+
+                    <span>
+                        Personalization
+                    </span>
+
                 </div>
+
 
                 <div class="pipeline-line"></div>
 
 
+
+                <!-- ENGAGEMENT -->
+
                 <div class="pipeline-agent active">
+
                     <i class="fa-solid fa-satellite-dish"></i>
-                    Engagement
+
+                    <span>
+                        Engagement
+                    </span>
+
                 </div>
+
 
                 <div class="pipeline-line"></div>
 
 
+
+                <!-- DYNAMIC SCORE -->
+
                 <div class="pipeline-agent active">
+
                     <i class="fa-solid fa-chart-line"></i>
-                    Dynamic Score
+
+                    <span>
+                        Dynamic Score
+                    </span>
+
                 </div>
+
 
                 <div class="pipeline-line"></div>
 
+
+
+                <!-- FOLLOW-UP -->
 
                 <div class="pipeline-agent active">
+
                     <i class="fa-solid fa-rotate"></i>
-                    Follow-up
+
+                    <span>
+                        Follow-up
+                    </span>
+
                 </div>
+
 
                 <div class="pipeline-line"></div>
 
+
+
+                <!-- NEXT BEST ACTION -->
 
                 <div class="pipeline-agent final">
+
                     <i class="fa-solid fa-bolt"></i>
-                    Next Best Action
+
+                    <span>
+                        Next Best Action
+                    </span>
+
                 </div>
 
+
             </div>
+
 
         </section>
 
 
 
-        <!-- ==================================================
-             FLASH MESSAGES
-        =================================================== -->
+        <!-- =================================================
+             DJANGO FLASH MESSAGES
+        ================================================== -->
 
         {% if messages %}
 
@@ -448,8 +641,13 @@
                             {{ message }}
                         </span>
 
-                        <button onclick="this.parentElement.remove()">
+
+                        <button type="button"
+                                aria-label="Close message"
+                                onclick="this.parentElement.remove()">
+
                             <i class="fa-solid fa-xmark"></i>
+
                         </button>
 
                     </div>
@@ -462,9 +660,9 @@
 
 
 
-        <!-- ==================================================
+        <!-- =================================================
              PAGE CONTENT
-        =================================================== -->
+        ================================================== -->
 
         <div class="page-content">
 
@@ -475,11 +673,12 @@
 
 
 
-        <!-- ==================================================
+        <!-- =================================================
              FOOTER
-        =================================================== -->
+        ================================================== -->
 
         <footer class="app-footer">
+
 
             <div>
 
@@ -494,35 +693,272 @@
             </div>
 
 
+
             <div class="footer-right">
 
+
                 <span>
+
                     <i class="fa-solid fa-shield-halved"></i>
+
                     Responsible AI
+
                 </span>
 
+
                 <span>
+
                     <i class="fa-solid fa-leaf"></i>
+
                     Sustainable Mobility
+
                 </span>
 
+
                 <span>
+
                     <i class="fa-solid fa-bolt"></i>
+
                     Real-Time Intelligence
+
                 </span>
+
 
             </div>
+
 
         </footer>
 
 
     </main>
 
+
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+
+    <div class="sidebar-overlay"
+         id="sidebarOverlay">
+    </div>
+
+
 </div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const menuButton =
+            document.getElementById("mobileMenuButton");
+
+        const sidebar =
+            document.querySelector(".sidebar");
+
+        const overlay =
+            document.getElementById("sidebarOverlay");
+
+
+        /*
+        ========================================================
+        OPEN MOBILE SIDEBAR
+        ========================================================
+        */
+
+        function openSidebar() {
+
+            if (sidebar) {
+                sidebar.classList.add(
+                    "mobile-sidebar-open"
+                );
+            }
+
+            if (overlay) {
+                overlay.classList.add(
+                    "active"
+                );
+            }
+
+            document.body.classList.add(
+                "sidebar-open"
+            );
+
+        }
+
+
+        /*
+        ========================================================
+        CLOSE MOBILE SIDEBAR
+        ========================================================
+        */
+
+        function closeSidebar() {
+
+            if (sidebar) {
+                sidebar.classList.remove(
+                    "mobile-sidebar-open"
+                );
+            }
+
+            if (overlay) {
+                overlay.classList.remove(
+                    "active"
+                );
+            }
+
+            document.body.classList.remove(
+                "sidebar-open"
+            );
+
+        }
+
+
+        /*
+        ========================================================
+        MOBILE MENU BUTTON
+        ========================================================
+        */
+
+        if (menuButton) {
+
+            menuButton.addEventListener(
+                "click",
+                function () {
+
+                    if (
+                        sidebar &&
+                        sidebar.classList.contains(
+                            "mobile-sidebar-open"
+                        )
+                    ) {
+
+                        closeSidebar();
+
+                    } else {
+
+                        openSidebar();
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /*
+        ========================================================
+        OVERLAY CLICK
+        ========================================================
+        */
+
+        if (overlay) {
+
+            overlay.addEventListener(
+                "click",
+                closeSidebar
+            );
+
+        }
+
+
+        /*
+        ========================================================
+        CLOSE SIDEBAR AFTER NAVIGATION
+        ========================================================
+        */
+
+        const sidebarLinks =
+            document.querySelectorAll(
+                ".sidebar-nav a, .ai-status-link"
+            );
+
+
+        sidebarLinks.forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        if (
+                            window.innerWidth <= 1000
+                        ) {
+
+                            closeSidebar();
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /*
+        ========================================================
+        AUTO HIDE DJANGO MESSAGES
+        ========================================================
+        */
+
+        const flashMessages =
+            document.querySelectorAll(
+                ".flash-message"
+            );
+
+
+        flashMessages.forEach(
+            function (message, index) {
+
+                setTimeout(
+                    function () {
+
+                        message.style.transition =
+                            "opacity .25s ease, transform .25s ease";
+
+                        message.style.opacity =
+                            "0";
+
+                        message.style.transform =
+                            "translateY(-8px)";
+
+
+                        setTimeout(
+                            function () {
+
+                                message.remove();
+
+                            },
+                            260
+                        );
+
+                    },
+
+                    5500 + (index * 300)
+
+                );
+
+            }
+        );
+
+
+    }
+);
+
+</script>
 
 
 {% block extra_js %}
 {% endblock %}
 
+
 </body>
+
 </html>

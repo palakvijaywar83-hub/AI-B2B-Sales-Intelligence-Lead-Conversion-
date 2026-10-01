@@ -1,0 +1,824 @@
+{% extends 'base.html' %}
+
+{% block title %}Product Matching · EVLeadAI{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<div class="lead-list-header">
+
+    <div class="lead-list-title">
+
+        <span class="eyebrow">
+            <i class="fa-solid fa-cubes"></i>
+            PRODUCT MATCHING AGENT
+        </span>
+
+        <h1>
+            AI EV <span>Product Matching</span>
+        </h1>
+
+        <p>
+            Matching business fleet requirements, operating usage
+            and commercial constraints with the most suitable
+            electric vehicle.
+        </p>
+
+    </div>
+
+
+    <div class="lead-command-actions">
+
+        <div class="table-ai-status">
+
+            <span class="live-dot"></span>
+
+            <div>
+                <small>MATCHING ENGINE</small>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </div>
+
+
+        <a href="{% url 'agentic_ai' %}"
+           class="btn btn-secondary">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            Agentic AI
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PRODUCT MATCHING INTELLIGENCE STRIP
+========================================================= -->
+
+<div class="lead-intelligence-strip">
+
+    <div class="lead-strip-intro">
+
+        <div class="strip-ai-icon">
+            <i class="fa-solid fa-cubes"></i>
+        </div>
+
+        <div>
+
+            <small>
+                REQUIREMENT-DRIVEN MATCHING
+            </small>
+
+            <strong>
+                AI connects business requirements to the right EV
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="strip-process">
+
+        <div>
+            <i class="fa-solid fa-building"></i>
+            Industry
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-truck"></i>
+            Fleet
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-road"></i>
+            Usage
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+            Budget
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-motorcycle"></i>
+            EV Need
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div class="strip-result">
+            <i class="fa-solid fa-check-double"></i>
+            Best Match
+        </div>
+
+    </div>
+
+
+    <div class="table-ai-status">
+
+        <span class="live-dot"></span>
+
+        <div>
+            <small>AI MATCHING</small>
+            <strong>LIVE</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MATCHING OVERVIEW
+========================================================= -->
+
+<section class="kpi-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-eyebrow">
+                PRODUCT INTELLIGENCE
+            </span>
+
+            <h2>
+                Requirement-to-Product Matching
+            </h2>
+
+        </div>
+
+
+        <div class="live-refresh">
+            <span></span>
+            Requirement driven
+        </div>
+
+    </div>
+
+
+    <div class="executive-kpis">
+
+        <!-- INDUSTRY -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+
+                <span class="kpi-status">
+                    CONTEXT
+                </span>
+
+            </div>
+
+            <small>BUSINESS PROFILE</small>
+
+            <strong>FIT</strong>
+
+            <p>
+                Industry and operating environment
+            </p>
+
+        </div>
+
+
+        <!-- FLEET -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-truck"></i>
+                </div>
+
+                <span class="kpi-status">
+                    SCALE
+                </span>
+
+            </div>
+
+            <small>FLEET REQUIREMENT</small>
+
+            <strong>SIZE</strong>
+
+            <p>
+                Current fleet and EV requirement
+            </p>
+
+        </div>
+
+
+        <!-- USAGE -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-road"></i>
+                </div>
+
+                <span class="kpi-status">
+                    USAGE
+                </span>
+
+            </div>
+
+            <small>OPERATING PROFILE</small>
+
+            <strong>KM</strong>
+
+            <p>
+                Monthly distance per vehicle
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCT -->
+
+        <div class="kpi-card highlight">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon score-icon">
+                    <i class="fa-solid fa-motorcycle"></i>
+                </div>
+
+                <span class="kpi-status">
+                    AI MATCH
+                </span>
+
+            </div>
+
+            <small>PRODUCT RECOMMENDATION</small>
+
+            <strong>EV</strong>
+
+            <p>
+                Best-fit vehicle recommendation
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCT MATCHING MATRIX
+========================================================= -->
+
+<div class="dashboard-panel leads-command-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                AI MATCH RESULTS
+            </span>
+
+            <h2>
+                Prospect → EV Recommendation
+            </h2>
+
+            <p>
+                Compare each prospect's fleet requirement,
+                operating usage and budget with the AI-recommended EV.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <span class="live-dot"></span>
+
+            <div>
+                <small>MATCH MATRIX</small>
+                <strong>LIVE</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-responsive">
+
+        <table class="executive-table">
+
+            <thead>
+
+                <tr>
+                    <th>Company</th>
+                    <th>Industry</th>
+                    <th>Current Fleet</th>
+                    <th>EV Requirement</th>
+                    <th>Monthly Usage</th>
+                    <th>Budget / Vehicle</th>
+                    <th>AI Product Match</th>
+                    <th></th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            {% for l in leads %}
+
+                <tr>
+
+                    <!-- COMPANY -->
+
+                    <td>
+
+                        <a href="{% url 'lead_detail' l.id %}"
+                           class="company-cell">
+
+                            <div class="company-avatar">
+                                {{ l.company_name|slice:":2"|upper }}
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    {{ l.company_name }}
+                                </strong>
+
+                                <small>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    {{ l.city }}
+                                </small>
+
+                            </div>
+
+                        </a>
+
+                    </td>
+
+
+                    <!-- INDUSTRY -->
+
+                    <td>
+                        {{ l.industry }}
+                    </td>
+
+
+                    <!-- CURRENT FLEET -->
+
+                    <td>
+
+                        <div class="ev-opportunity-cell">
+
+                            <strong>
+                                {{ l.existing_fleet_size }}
+                            </strong>
+
+                            <span>
+                                vehicles
+                            </span>
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- EV REQUIREMENT -->
+
+                    <td>
+
+                        <div class="ev-opportunity-cell">
+
+                            <strong>
+                                {{ l.estimated_ev_requirement }}
+                            </strong>
+
+                            <span>
+                                EVs required
+                            </span>
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- MONTHLY USAGE -->
+
+                    <td>
+
+                        <div class="ev-opportunity-cell">
+
+                            <strong>
+                                {{ l.monthly_km_per_vehicle }}
+                            </strong>
+
+                            <span>
+                                km / vehicle
+                            </span>
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- BUDGET -->
+
+                    <td>
+
+                        <div class="ev-opportunity-cell">
+
+                            <strong>
+                                ₹{{ l.budget_per_vehicle }}
+                            </strong>
+
+                            <span>
+                                per vehicle
+                            </span>
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- PRODUCT MATCH -->
+
+                    <td>
+
+                        {% if l.recommended_product %}
+
+                            <div class="product-match">
+
+                                <div class="product-match-icon">
+                                    <i class="fa-solid fa-motorcycle"></i>
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        AI RECOMMENDED
+                                    </small>
+
+                                    <strong>
+                                        {{ l.recommended_product.name }}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        {% else %}
+
+                            <a href="{% url 'run_agents' l.id %}"
+                               class="product-pending">
+
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                                Run Matching Agent
+
+                            </a>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- ACTION -->
+
+                    <td>
+
+                        <a href="{% url 'lead_detail' l.id %}"
+                           class="lead-open-button"
+                           title="View Product Match">
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+
+            {% empty %}
+
+                <tr>
+
+                    <td colspan="8">
+
+                        <div class="leads-empty-state">
+
+                            <div class="empty-icon">
+                                <i class="fa-solid fa-cubes"></i>
+                            </div>
+
+                            <h3>
+                                No Product Matches Yet
+                            </h3>
+
+                            <p>
+                                Run the Agentic AI Product Matching Agent
+                                to evaluate fleet requirements and generate
+                                EV recommendations.
+                            </p>
+
+                            <a href="{% url 'agentic_ai' %}"
+                               class="btn btn-primary">
+
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                Open Agentic AI
+
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     HOW THE AGENT DECIDES
+========================================================= -->
+
+<div class="dashboard-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                EXPLAINABLE PRODUCT INTELLIGENCE
+            </span>
+
+            <h2>
+                How the Matching Agent Makes a Decision
+            </h2>
+
+            <p>
+                EVLeadAI evaluates business context before recommending
+                a product rather than treating every prospect identically.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <div>
+                <small>AI MODEL</small>
+                <strong>EXPLAINABLE</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="executive-kpis">
+
+        <!-- REQUIREMENT -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+
+                <span class="kpi-status">
+                    01
+                </span>
+
+            </div>
+
+            <small>REQUIREMENT</small>
+
+            <strong>Need</strong>
+
+            <p>
+                Understand fleet size and EV quantity
+            </p>
+
+        </div>
+
+
+        <!-- USAGE -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+
+                <span class="kpi-status">
+                    02
+                </span>
+
+            </div>
+
+            <small>OPERATING USAGE</small>
+
+            <strong>Use</strong>
+
+            <p>
+                Evaluate monthly vehicle usage
+            </p>
+
+        </div>
+
+
+        <!-- BUDGET -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+
+                <span class="kpi-status">
+                    03
+                </span>
+
+            </div>
+
+            <small>COMMERCIAL FIT</small>
+
+            <strong>Budget</strong>
+
+            <p>
+                Check available budget per vehicle
+            </p>
+
+        </div>
+
+
+        <!-- MATCH -->
+
+        <div class="kpi-card highlight">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon score-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <span class="kpi-status">
+                    04
+                </span>
+
+            </div>
+
+            <small>AI RECOMMENDATION</small>
+
+            <strong>Match</strong>
+
+            <p>
+                Select the most suitable EV product
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     REQUIREMENT → RECOMMENDATION EXPLANATION
+========================================================= -->
+
+<div class="lead-scoring-explanation">
+
+    <div class="scoring-explanation-left">
+
+        <div class="explanation-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div>
+
+            <small>
+                AGENTIC PRODUCT MATCHING
+            </small>
+
+            <h3>
+                From business requirement to EV recommendation
+            </h3>
+
+            <p>
+                Product Matching becomes part of the lead's intelligence
+                profile and feeds Dynamic Scoring, personalized outreach,
+                ROI intelligence and the Next-Best-Action.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="scoring-signals">
+
+        <div class="signal">
+            <i class="fa-solid fa-building"></i>
+            <span>Business</span>
+            <strong>Fit</strong>
+        </div>
+
+        <div class="signal">
+            <i class="fa-solid fa-road"></i>
+            <span>Usage</span>
+            <strong>Need</strong>
+        </div>
+
+        <div class="signal">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+            <span>Budget</span>
+            <strong>Fit</strong>
+        </div>
+
+        <div class="signal">
+            <i class="fa-solid fa-motorcycle"></i>
+            <span>Product</span>
+            <strong>Match</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NATIONAL DEMO CLOSING
+========================================================= -->
+
+<div class="lead-stage-message">
+
+    <div>
+
+        <span>
+            EVLEADAI
+        </span>
+
+        <strong>
+            AI PRODUCT INTELLIGENCE
+        </strong>
+
+    </div>
+
+
+    <h2>
+        Understand the requirement.
+        <em>Recommend the right EV.</em>
+    </h2>
+
+
+    <a href="{% url 'recommendations' %}"
+       class="lead-open-button"
+       title="View AI Recommendations">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</div>
+
+{% endblock %}

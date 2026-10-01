@@ -1,0 +1,1072 @@
+{% extends 'base.html' %}
+
+{% block title %}Agentic AI Control Center · EVLeadAI{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<div class="lead-list-header">
+
+    <div class="lead-list-title">
+
+        <span class="eyebrow">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            AI ORCHESTRATION ENGINE
+        </span>
+
+        <h1>
+            Agentic AI <span>Control Center</span>
+        </h1>
+
+        <p>
+            A coordinated intelligence pipeline that discovers,
+            understands, matches, scores and recommends the next
+            best sales action for every B2B EV prospect.
+        </p>
+
+    </div>
+
+
+    <div class="lead-command-actions">
+
+        <div class="table-ai-status">
+
+            <span class="live-dot"></span>
+
+            <div>
+                <small>AI ORCHESTRATION</small>
+                <strong>LIVE</strong>
+            </div>
+
+        </div>
+
+
+        <a href="{% url 'leads' %}"
+           class="btn btn-secondary">
+
+            <i class="fa-solid fa-bullseye"></i>
+            Lead Intelligence
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     AI ORCHESTRATION STRIP
+========================================================= -->
+
+<div class="lead-intelligence-strip">
+
+    <div class="lead-strip-intro">
+
+        <div class="strip-ai-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div>
+
+            <small>
+                MULTI-AGENT INTELLIGENCE
+            </small>
+
+            <strong>
+                Specialized intelligence working around one evolving lead
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="strip-process">
+
+        <div>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Discover
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-building"></i>
+            Research
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-motorcycle"></i>
+            Match
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-message"></i>
+            Engage
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-chart-line"></i>
+            Score
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div class="strip-result">
+            <i class="fa-solid fa-bolt"></i>
+            Act
+        </div>
+
+    </div>
+
+
+    <div class="table-ai-status">
+
+        <span class="live-dot"></span>
+
+        <div>
+            <small>PIPELINE</small>
+            <strong>CONNECTED</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     EXECUTIVE SUMMARY
+========================================================= -->
+
+<section class="kpi-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-eyebrow">
+                AI OPERATIONS
+            </span>
+
+            <h2>
+                Orchestration Overview
+            </h2>
+
+        </div>
+
+
+        <div class="live-refresh">
+            <span></span>
+            Intelligence pipeline active
+        </div>
+
+    </div>
+
+
+    <div class="executive-kpis">
+
+        <!-- AI AGENTS -->
+
+        <div class="kpi-card highlight">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon score-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <span class="kpi-status">
+                    AGENTIC
+                </span>
+
+            </div>
+
+            <small>INTELLIGENCE AGENTS</small>
+
+            <strong>
+                {{ total_agents }}
+            </strong>
+
+            <p>
+                Specialized AI capabilities
+            </p>
+
+        </div>
+
+
+        <!-- PROSPECTS -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+
+                <span class="kpi-status">
+                    PROSPECTS
+                </span>
+
+            </div>
+
+            <small>B2B LEADS</small>
+
+            <strong>
+                {{ total_leads }}
+            </strong>
+
+            <p>
+                Available for intelligence analysis
+            </p>
+
+        </div>
+
+
+        <!-- HIGH INTENT -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon hot">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+
+                <span class="kpi-status hot-status">
+                    PRIORITY
+                </span>
+
+            </div>
+
+            <small>HIGH INTENT</small>
+
+            <strong>
+                {{ hot_leads }}
+            </strong>
+
+            <p>
+                Priority sales opportunities
+            </p>
+
+        </div>
+
+
+        <!-- ORCHESTRATION -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+
+                <span class="kpi-status">
+                    ACTIVE
+                </span>
+
+            </div>
+
+            <small>ORCHESTRATION</small>
+
+            <strong>
+                LIVE
+            </strong>
+
+            <p>
+                Connected decision pipeline
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     8 AGENT INTELLIGENCE PIPELINE
+========================================================= -->
+
+<div class="dashboard-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                MULTI-AGENT SYSTEM
+            </span>
+
+            <h2>
+                8-Agent Intelligence Pipeline
+            </h2>
+
+            <p>
+                Each capability contributes specialized intelligence
+                to the same continuously evolving B2B prospect.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <span class="live-dot"></span>
+
+            <div>
+                <small>ORCHESTRATION</small>
+                <strong>DISCOVER → DECIDE → ACT</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="agent-workflow">
+
+        {% for agent in agents %}
+
+            <div class="agent-box
+                {% if forloop.counter == 6 %}scoring-agent{% endif %}
+                {% if forloop.counter == 8 %}next-action-agent{% endif %}">
+
+                <div class="agent-number">
+                    {{ forloop.counter|stringformat:"02d" }}
+                </div>
+
+
+                <div class="agent-icon">
+                    <i class="fa-solid {{ agent.icon }}"></i>
+                </div>
+
+
+                <div class="agent-content">
+
+                    <small>
+                        AGENT {{ forloop.counter|stringformat:"02d" }}
+                    </small>
+
+                    <h3>
+                        {{ agent.name }}
+                    </h3>
+
+                    <p>
+                        {{ agent.description }}
+                    </p>
+
+
+                    <span class="stage-badge qualified">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        {{ agent.status }}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ORCHESTRATION FLOW
+========================================================= -->
+
+<div class="dashboard-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                CLOSED INTELLIGENCE LOOP
+            </span>
+
+            <h2>
+                How the Agents Work Together
+            </h2>
+
+            <p>
+                Intelligence generated by one stage becomes context
+                for the next decision in the sales lifecycle.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <div>
+                <small>ARCHITECTURE</small>
+                <strong>CONNECTED</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="strip-process">
+
+        <div>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Discovery
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-building"></i>
+            Research
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-list-check"></i>
+            Requirement
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-motorcycle"></i>
+            Product Match
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-message"></i>
+            Outreach
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-satellite-dish"></i>
+            Engagement
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div>
+            <i class="fa-solid fa-chart-line"></i>
+            Score
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div class="strip-result">
+            <i class="fa-solid fa-bolt"></i>
+            NBA
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     LIVE ORCHESTRATION
+========================================================= -->
+
+<div class="dashboard-panel leads-command-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                LIVE ORCHESTRATION
+            </span>
+
+            <h2>
+                Run Intelligence Pipeline on a Prospect
+            </h2>
+
+            <p>
+                Select a B2B lead to refresh research,
+                product matching, scoring and sales recommendation.
+            </p>
+
+        </div>
+
+
+        <div class="table-ai-status">
+
+            <span class="live-dot"></span>
+
+            <div>
+                <small>AI PIPELINE</small>
+                <strong>READY</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-responsive">
+
+        <table class="executive-table">
+
+            <thead>
+
+                <tr>
+                    <th>Company</th>
+                    <th>Industry</th>
+                    <th>EV Requirement</th>
+                    <th>AI Score</th>
+                    <th>Product Match</th>
+                    <th>Next Best Action</th>
+                    <th>Pipeline</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            {% for lead in leads %}
+
+                <tr {% if lead.dynamic_score >= 90 %}class="high-priority-row"{% endif %}>
+
+                    <!-- COMPANY -->
+
+                    <td>
+
+                        <a href="{% url 'lead_detail' lead.id %}"
+                           class="company-cell">
+
+                            <div class="company-avatar">
+                                {{ lead.company_name|slice:":2"|upper }}
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    {{ lead.company_name }}
+                                </strong>
+
+                                <small>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    {{ lead.city }}
+                                </small>
+
+                            </div>
+
+                        </a>
+
+                    </td>
+
+
+                    <!-- INDUSTRY -->
+
+                    <td>
+                        {{ lead.industry }}
+                    </td>
+
+
+                    <!-- EV REQUIREMENT -->
+
+                    <td>
+
+                        <div class="ev-opportunity-cell">
+
+                            <strong>
+                                {{ lead.estimated_ev_requirement }}
+                            </strong>
+
+                            <span>
+                                EVs required
+                            </span>
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- SCORE -->
+
+                    <td>
+
+                        <div class="lead-score-cell">
+
+                            {% if lead.dynamic_score >= 80 %}
+
+                                <div class="score-circle score-hot">
+                                    {{ lead.dynamic_score }}
+                                </div>
+
+                                <div>
+
+                                    <small>AI SCORE</small>
+
+                                    <span class="score-label hot-label">
+                                        HIGH INTENT
+                                    </span>
+
+                                    <div class="mini-score-bar">
+                                        <span style="width:{{ lead.dynamic_score }}%;"></span>
+                                    </div>
+
+                                </div>
+
+
+                            {% elif lead.dynamic_score >= 60 %}
+
+                                <div class="score-circle score-warm">
+                                    {{ lead.dynamic_score }}
+                                </div>
+
+                                <div>
+
+                                    <small>AI SCORE</small>
+
+                                    <span class="score-label warm-label">
+                                        WARM
+                                    </span>
+
+                                    <div class="mini-score-bar">
+                                        <span style="width:{{ lead.dynamic_score }}%;"></span>
+                                    </div>
+
+                                </div>
+
+
+                            {% else %}
+
+                                <div class="score-circle score-qualified">
+                                    {{ lead.dynamic_score }}
+                                </div>
+
+                                <div>
+
+                                    <small>AI SCORE</small>
+
+                                    <span class="score-label qualified-label">
+                                        QUALIFIED
+                                    </span>
+
+                                    <div class="mini-score-bar">
+                                        <span style="width:{{ lead.dynamic_score }}%;"></span>
+                                    </div>
+
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- PRODUCT MATCH -->
+
+                    <td>
+
+                        {% if lead.recommended_product %}
+
+                            <div class="product-match">
+
+                                <div class="product-match-icon">
+                                    <i class="fa-solid fa-motorcycle"></i>
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        AI MATCH
+                                    </small>
+
+                                    <strong>
+                                        {{ lead.recommended_product.name }}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        {% else %}
+
+                            <div class="product-pending">
+
+                                <i class="fa-solid fa-hourglass-half"></i>
+
+                                Awaiting Match
+
+                            </div>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- NEXT BEST ACTION -->
+
+                    <td>
+
+                        <div class="next-action-cell">
+
+                            <div class="action-bolt">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+
+                            <div>
+
+                                <small>
+                                    NEXT BEST ACTION
+                                </small>
+
+                                <strong>
+                                    {{ lead.next_best_action }}
+                                </strong>
+
+                                {% if lead.next_action_reason %}
+
+                                    <span>
+                                        {{ lead.next_action_reason|truncatechars:65 }}
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- RUN -->
+
+                    <td>
+
+                        <a href="{% url 'run_agents' lead.id %}"
+                           class="btn btn-primary">
+
+                            <i class="fa-solid fa-play"></i>
+
+                            Run AI
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+
+            {% empty %}
+
+                <tr>
+
+                    <td colspan="7">
+
+                        <div class="leads-empty-state">
+
+                            <div class="empty-icon">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+
+                            <h3>
+                                No Prospects Available
+                            </h3>
+
+                            <p>
+                                Import or seed B2B prospects before
+                                running the Agentic AI pipeline.
+                            </p>
+
+                            <a href="{% url 'leads' %}"
+                               class="btn btn-primary">
+
+                                <i class="fa-solid fa-bullseye"></i>
+                                Open Lead Intelligence
+
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     WHY AGENTIC AI
+========================================================= -->
+
+<div class="dashboard-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="section-eyebrow">
+                WHY AGENTIC AI?
+            </span>
+
+            <h2>
+                One Sales Decision Requires Multiple Intelligence Tasks
+            </h2>
+
+            <p>
+                EVLeadAI combines specialized capabilities instead
+                of treating lead intelligence as a single prediction.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="executive-kpis">
+
+        <!-- UNDERSTAND -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                </div>
+
+                <span class="kpi-status">
+                    01
+                </span>
+
+            </div>
+
+            <small>UNDERSTAND</small>
+
+            <strong>
+                Research
+            </strong>
+
+            <p>
+                Build business and requirement intelligence
+            </p>
+
+        </div>
+
+
+        <!-- MATCH -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-motorcycle"></i>
+                </div>
+
+                <span class="kpi-status">
+                    02
+                </span>
+
+            </div>
+
+            <small>RECOMMEND</small>
+
+            <strong>
+                Match
+            </strong>
+
+            <p>
+                Identify the most suitable EV product
+            </p>
+
+        </div>
+
+
+        <!-- OBSERVE -->
+
+        <div class="kpi-card">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon">
+                    <i class="fa-solid fa-satellite-dish"></i>
+                </div>
+
+                <span class="kpi-status">
+                    03
+                </span>
+
+            </div>
+
+            <small>OBSERVE</small>
+
+            <strong>
+                Behaviour
+            </strong>
+
+            <p>
+                Capture changing customer buying signals
+            </p>
+
+        </div>
+
+
+        <!-- DECIDE -->
+
+        <div class="kpi-card highlight">
+
+            <div class="kpi-top">
+
+                <div class="kpi-icon score-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <span class="kpi-status">
+                    04
+                </span>
+
+            </div>
+
+            <small>DECIDE</small>
+
+            <strong>
+                Act
+            </strong>
+
+            <p>
+                Recommend the next best sales action
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     EXPLAINABILITY
+========================================================= -->
+
+<div class="lead-scoring-explanation">
+
+    <div class="scoring-explanation-left">
+
+        <div class="explanation-icon">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+        </div>
+
+        <div>
+
+            <small>
+                EXPLAINABLE AGENTIC AI
+            </small>
+
+            <h3>
+                Intelligence remains visible at every stage
+            </h3>
+
+            <p>
+                Open a prospect to inspect company research,
+                EV requirement, product match, engagement history,
+                score movement and the reason behind the recommended action.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="scoring-signals">
+
+        <div class="signal">
+            <i class="fa-solid fa-building"></i>
+            <span>Research</span>
+            <strong>Context</strong>
+        </div>
+
+        <div class="signal">
+            <i class="fa-solid fa-motorcycle"></i>
+            <span>Product</span>
+            <strong>Match</strong>
+        </div>
+
+        <div class="signal">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Lead</span>
+            <strong>Score</strong>
+        </div>
+
+        <div class="signal">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Next</span>
+            <strong>Action</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NATIONAL DEMO CLOSING
+========================================================= -->
+
+<div class="lead-stage-message">
+
+    <div>
+
+        <span>
+            EVLEADAI
+        </span>
+
+        <strong>
+            AGENTIC SALES INTELLIGENCE
+        </strong>
+
+    </div>
+
+
+    <h2>
+        Discover. Understand. Match. Engage.
+        <em>Score. Decide. Act.</em>
+    </h2>
+
+
+    <a href="{% url 'recommendations' %}"
+       class="lead-open-button"
+       title="View AI Recommendations">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</div>
+
+{% endblock %}

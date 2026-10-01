@@ -5069,3 +5069,68 @@ input:focus {
         padding: 0;
     }
 }
+
+/* ============================================================
+   AGENTIC AI CONTROL CENTER LINK
+============================================================ */
+
+.ai-status-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.ai-status-link:visited {
+    color: inherit;
+}
+
+.ai-status-link:hover {
+    color: inherit;
+    text-decoration: none;
+    transform: translateY(-2px);
+    border-color: rgba(99, 230, 190, .38);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .18);
+}
+
+.ai-status-link:hover .ai-pulse {
+    transform: scale(1.07);
+}
+
+.ai-status-link.active {
+    border-color: rgba(99, 230, 190, .48);
+    box-shadow:
+        0 0 0 1px rgba(99, 230, 190, .08),
+        0 15px 35px rgba(0, 0, 0, .15);
+}
+
+.ai-card-arrow {
+    margin-left: auto;
+    color: #63e6be;
+    font-size: 11px;
+    transition: transform .2s ease;
+}
+
+.ai-status-link:hover .ai-card-arrow {
+    transform: translateX(3px);
+}
+
+.ai-control-hint {
+    margin-top: 11px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #63e6be;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.ai-control-hint i {
+    font-size: 8px;
+}

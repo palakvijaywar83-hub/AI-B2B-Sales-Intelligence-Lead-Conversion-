@@ -1,6 +1,6 @@
 # EVLeadAI – Agentic B2B EV Sales Intelligence
 
-National-level hackathon MVP for EV fleet B2B sales. The system demonstrates lead discovery, company research, product matching, personalized outreach, engagement tracking, dynamic lead scoring, follow-up and next-best-action.
+MVP for EV fleet B2B sales. The system demonstrates lead discovery, company research, product matching, personalized outreach, engagement tracking, dynamic lead scoring, follow-up and next-best-action.
 
 ## Run
 ```bash
